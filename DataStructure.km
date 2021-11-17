@@ -1,0 +1,56 @@
+{
+    "root": {
+        "data": {
+            "id": "cfrp6o0jygg0",
+            "created": 1637115991747,
+            "text": "Data Structure"
+        },
+        "children": [
+            {
+                "data": {
+                    "id": "cfrp7vfiuew0",
+                    "created": 1637116086253,
+                    "text": "物理结构"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "cfrp812uqsg0",
+                            "created": 1637116098548,
+                            "text": "数组"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "cfrp83tyevs0",
+                            "created": 1637116104540,
+                            "text": "链表"
+                        },
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "cfrp87bj2g00",
+                    "created": 1637116112133,
+                    "text": "逻辑结构"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "cfrp8apr5z40",
+                            "created": 1637116119524,
+                            "text": "树"
+                        },
+                        "children": []
+                    }
+                ]
+            }
+        ]
+    },
+    "template": "right",
+    "theme": "fresh-purple",
+    "version": "1.4.43"
+}
