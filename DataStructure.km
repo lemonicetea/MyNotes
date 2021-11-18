@@ -8,41 +8,164 @@
         "children": [
             {
                 "data": {
-                    "id": "cfrp7vfiuew0",
-                    "created": 1637116086253,
-                    "text": "物理结构"
+                    "id": "cfsivuwp2dc0",
+                    "created": 1637199778042,
+                    "text": "分类",
+                    "expandState": "expand",
+                    "layout_right_offset": {
+                        "x": -74,
+                        "y": 177
+                    }
                 },
                 "children": [
                     {
                         "data": {
-                            "id": "cfrp812uqsg0",
-                            "created": 1637116098548,
-                            "text": "数组"
+                            "id": "cfrp87bj2g00",
+                            "created": 1637116112133,
+                            "text": "逻辑结构",
+                            "layout_right_offset": {
+                                "x": -4,
+                                "y": 142
+                            }
                         },
-                        "children": []
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "cfrp8apr5z40",
+                                    "created": 1637116119524,
+                                    "text": "树",
+                                    "layout_right_offset": {
+                                        "x": -3,
+                                        "y": 234
+                                    }
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "cfskf8sfw740",
+                                            "created": 1637204118289,
+                                            "text": "二叉树"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "cfskfaxeue00",
+                                                    "created": 1637204122943,
+                                                    "text": "满二叉树"
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "cfskfdrahi00",
+                                                    "created": 1637204129103,
+                                                    "text": "完全二叉树"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "data": {
+                                                            "id": "cfskfq439xs0",
+                                                            "created": 1637204155999,
+                                                            "text": "二叉堆"
+                                                        },
+                                                        "children": [
+                                                            {
+                                                                "data": {
+                                                                    "id": "cfskfso7wmw0",
+                                                                    "created": 1637204161569,
+                                                                    "text": "优先队列"
+                                                                },
+                                                                "children": []
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "cfskemrwbdk0",
+                                    "created": 1637204070367,
+                                    "text": "栈"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "cfskeq9b9000",
+                                    "created": 1637204077950,
+                                    "text": "队列"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "cfskevlkm7c0",
+                                    "created": 1637204089575,
+                                    "text": "散列表"
+                                },
+                                "children": []
+                            }
+                        ]
                     },
                     {
                         "data": {
-                            "id": "cfrp83tyevs0",
-                            "created": 1637116104540,
-                            "text": "链表"
+                            "id": "cfrp7vfiuew0",
+                            "created": 1637116086253,
+                            "text": "物理结构",
+                            "layout_right_offset": {
+                                "x": -8,
+                                "y": -177
+                            }
                         },
-                        "children": []
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "cfrp812uqsg0",
+                                    "created": 1637116098548,
+                                    "text": "数组"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "cfrp83tyevs0",
+                                    "created": 1637116104540,
+                                    "text": "链表"
+                                },
+                                "children": []
+                            }
+                        ]
                     }
                 ]
             },
             {
                 "data": {
-                    "id": "cfrp87bj2g00",
-                    "created": 1637116112133,
-                    "text": "逻辑结构"
+                    "id": "cfsiw5dluvk0",
+                    "created": 1637199800833,
+                    "text": "特性",
+                    "layout_right_offset": {
+                        "x": -72,
+                        "y": -209
+                    }
                 },
                 "children": [
                     {
                         "data": {
-                            "id": "cfrp8apr5z40",
-                            "created": 1637116119524,
-                            "text": "树"
+                            "id": "cfsiwtdaq3s0",
+                            "created": 1637199853057,
+                            "text": "时间复杂度"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "cfsiwzr4lcg0",
+                            "created": 1637199866954,
+                            "text": "空间复杂度"
                         },
                         "children": []
                     }
