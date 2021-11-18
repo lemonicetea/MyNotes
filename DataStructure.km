@@ -24,9 +24,10 @@
                             "created": 1637116112133,
                             "text": "逻辑结构",
                             "layout_right_offset": {
-                                "x": -4,
-                                "y": 142
-                            }
+                                "x": -3,
+                                "y": 138
+                            },
+                            "expandState": "expand"
                         },
                         "children": [
                             {
@@ -35,8 +36,8 @@
                                     "created": 1637116119524,
                                     "text": "树",
                                     "layout_right_offset": {
-                                        "x": -3,
-                                        "y": 234
+                                        "x": 29,
+                                        "y": 169
                                     }
                                 },
                                 "children": [
@@ -44,14 +45,17 @@
                                         "data": {
                                             "id": "cfskf8sfw740",
                                             "created": 1637204118289,
-                                            "text": "二叉树"
+                                            "text": "二叉树",
+                                            "note": "深度优先遍历：\n - 前序遍历（中左右）\n - 中序遍历（左中右）\n - 后序遍历（左右中）\n广度优先遍历：\n - 层序遍历",
+                                            "expandState": "expand"
                                         },
                                         "children": [
                                             {
                                                 "data": {
                                                     "id": "cfskfaxeue00",
                                                     "created": 1637204122943,
-                                                    "text": "满二叉树"
+                                                    "text": "满二叉树",
+                                                    "expandState": "expand"
                                                 },
                                                 "children": []
                                             },
@@ -59,7 +63,8 @@
                                                 "data": {
                                                     "id": "cfskfdrahi00",
                                                     "created": 1637204129103,
-                                                    "text": "完全二叉树"
+                                                    "text": "完全二叉树",
+                                                    "note": "1、链表存储\n2、数组存储：\n  - 父节点下标parent，左孩子节点下标2×parent + 1，右孩子节点下标2×parent + 2\n  - 左孩子节点下标leftChild，左孩子节点下标（leftChild-1）/ 2"
                                                 },
                                                 "children": [
                                                     {
@@ -71,11 +76,39 @@
                                                         "children": [
                                                             {
                                                                 "data": {
-                                                                    "id": "cfskfso7wmw0",
-                                                                    "created": 1637204161569,
-                                                                    "text": "优先队列"
+                                                                    "id": "cfssuvz1dq80",
+                                                                    "created": 1637227913096,
+                                                                    "text": "最大堆",
+                                                                    "note": "最大堆的任何一个父节点的值，都大于或等于它左、右孩子节点的值。\n最大堆的堆顶（根节点）是整个堆中的最大元素。"
                                                                 },
-                                                                "children": []
+                                                                "children": [
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "cfsszzrgq1k0",
+                                                                            "created": 1637228313166,
+                                                                            "text": "最大优先队列"
+                                                                        },
+                                                                        "children": []
+                                                                    }
+                                                                ]
+                                                            },
+                                                            {
+                                                                "data": {
+                                                                    "id": "cfssuyar9s80",
+                                                                    "created": 1637227918158,
+                                                                    "text": "最小堆",
+                                                                    "note": "最小堆的任何一个父节点的值，都小于或等于它左、右孩子节点的值。\n最小堆的堆顶（根节点）是整个堆中的最小元素。"
+                                                                },
+                                                                "children": [
+                                                                    {
+                                                                        "data": {
+                                                                            "id": "cfst08ztpm80",
+                                                                            "created": 1637228333262,
+                                                                            "text": "最小优先队列"
+                                                                        },
+                                                                        "children": []
+                                                                    }
+                                                                ]
                                                             }
                                                         ]
                                                     }
@@ -89,7 +122,11 @@
                                 "data": {
                                     "id": "cfskemrwbdk0",
                                     "created": 1637204070367,
-                                    "text": "栈"
+                                    "text": "栈",
+                                    "layout_right_offset": {
+                                        "x": 0,
+                                        "y": -50
+                                    }
                                 },
                                 "children": []
                             },
@@ -97,7 +134,11 @@
                                 "data": {
                                     "id": "cfskeq9b9000",
                                     "created": 1637204077950,
-                                    "text": "队列"
+                                    "text": "队列",
+                                    "layout_right_offset": {
+                                        "x": 7,
+                                        "y": -56
+                                    }
                                 },
                                 "children": []
                             },
@@ -124,8 +165,8 @@
                         "children": [
                             {
                                 "data": {
-                                    "id": "cfrp812uqsg0",
-                                    "created": 1637116098548,
+                                    "id": "cfsp5z08iv40",
+                                    "created": 1637217497265,
                                     "text": "数组"
                                 },
                                 "children": []
