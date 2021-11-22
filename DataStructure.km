@@ -13,8 +13,8 @@
                     "text": "分类",
                     "expandState": "expand",
                     "layout_right_offset": {
-                        "x": -74,
-                        "y": 177
+                        "x": -151,
+                        "y": 265
                     }
                 },
                 "children": [
@@ -24,8 +24,8 @@
                             "created": 1637116112133,
                             "text": "逻辑结构",
                             "layout_right_offset": {
-                                "x": -3,
-                                "y": 138
+                                "x": 5,
+                                "y": 98
                             },
                             "expandState": "expand"
                         },
@@ -158,8 +158,8 @@
                             "created": 1637116086253,
                             "text": "物理结构",
                             "layout_right_offset": {
-                                "x": -8,
-                                "y": -177
+                                "x": -14,
+                                "y": -201
                             }
                         },
                         "children": [
@@ -180,6 +180,96 @@
                                 "children": []
                             }
                         ]
+                    },
+                    {
+                        "data": {
+                            "id": "cfumf6ho0tc0",
+                            "created": 1637412875417,
+                            "text": "算法"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "cfumfhdvpiw0",
+                                    "created": 1637412899133,
+                                    "text": "排序"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "cfumfknt84g0",
+                                            "created": 1637412906264,
+                                            "text": "冒泡排序",
+                                            "note": "· 稳定排序（值相同的元素排序后位置不变）\n· 与后一位比大小和换位，需要循环array.length - 1轮\n· 优化：\n - 增加标记位isSorted标记数列有序，跳出大循环；\n - 增加lastExchangeIndex标记最后一次交换的位置；\n - 增加sortBorder标记无序数列的边界，每次比较到边界即可。"
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "cfunhevrswg0",
+                                                    "created": 1637415871522,
+                                                    "text": "鸡尾酒排序",
+                                                    "note": "在冒泡排序基础上的优化，元素的比较和交换过程是双向的（一轮左到右，一轮右到左……）"
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "cfunrv06f1k0",
+                                            "created": 1637416690259,
+                                            "text": "快速排序",
+                                            "note": "不稳定排序\n使用分治法，每次挑选一个基准元素，比他大的移动到一边，比他小的移动到另一边。",
+                                            "layout_right_offset": {
+                                                "x": 3,
+                                                "y": -30
+                                            }
+                                        },
+                                        "children": [
+                                            {
+                                                "data": {
+                                                    "id": "cfunuswo4ao0",
+                                                    "created": 1637416920786,
+                                                    "text": "双边循环",
+                                                    "note": "每次（递归）一个pivot元素，一个left指针和一个right指针，指针元素无需变动时指针移动，需要变动时指针停止，俩指针指向的元素互换。最后俩指针重叠时，将基准元素pivot与指针元素交换。",
+                                                    "layout_right_offset": {
+                                                        "x": -1,
+                                                        "y": -1
+                                                    }
+                                                },
+                                                "children": []
+                                            },
+                                            {
+                                                "data": {
+                                                    "id": "cfunuwf6zq80",
+                                                    "created": 1637416928436,
+                                                    "text": "单边循环",
+                                                    "note": "每次（递归）一个pivot元素，一个mark指针。大循环遍历，元素大于pivot则继续，小于pivot则mark++，将元素与mark指向元素互换位置（mark像是边界线），循环玩之后，将pivot元素与mark元素互换。",
+                                                    "layout_right_offset": {
+                                                        "x": 0,
+                                                        "y": -10
+                                                    }
+                                                },
+                                                "children": []
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "cfuoi5e0eds0",
+                                            "created": 1637418750332,
+                                            "text": "堆排序",
+                                            "layout_right_offset": {
+                                                "x": 1,
+                                                "y": -63
+                                            },
+                                            "note": "不稳定排序\n循环删除二叉堆堆顶元素，替换到二叉堆的末尾，调整堆产生新的堆顶，如此往复，最后二叉堆的层序遍历顺序即为所需的排序结果。"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
                     }
                 ]
             },
@@ -189,8 +279,8 @@
                     "created": 1637199800833,
                     "text": "特性",
                     "layout_right_offset": {
-                        "x": -72,
-                        "y": -209
+                        "x": -86,
+                        "y": -364
                     }
                 },
                 "children": [
