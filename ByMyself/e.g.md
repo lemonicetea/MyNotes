@@ -40,6 +40,15 @@ int[] myArray = new int[10];
 return new int[]{i, j};
 ```
 
+## 字符串
+
+```java
+// 创建
+String str = new String("hello");
+// 截取，注意左闭右开
+String s2 = str.substring(0, 4)
+```
+
 ## 哈希表
 
 ```java
