@@ -44,7 +44,7 @@
 
 [106. 从中序与后序遍历序列构造二叉树（中等）](https://leetcode-cn.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/)同上
 
-[652. 寻找重复的子树（中等）](https://leetcode-cn.com/problems/find-duplicate-subtrees)
+[652. 寻找重复的子树（中等）](https://leetcode-cn.com/problems/find-duplicate-subtrees) HashMap记录每个节点为根后序遍历拼接出的字符串和出现次数
 
 [297. 二叉树的序列化和反序列化（困难）](https://leetcode-cn.com/problems/serialize-and-deserialize-binary-tree) 前中后序遍历三种解法
 
@@ -56,19 +56,19 @@
 
 ## 5、二叉搜索树（BST）
 
-[230. BST第K小的元素（中等）](https://leetcode-cn.com/problems/kth-smallest-element-in-a-bst)
+[230. BST第K小的元素（中等）](https://leetcode-cn.com/problems/kth-smallest-element-in-a-bst) 两个变量记录节点val和节点序号，中序遍历到第K个
 
-[538. 二叉搜索树转化累加树（中等）](https://leetcode-cn.com/problems/convert-bst-to-greater-tree)
+[538. 二叉搜索树转化累加树（中等）](https://leetcode-cn.com/problems/convert-bst-to-greater-tree) 中序遍历变形，右中左，使树降序输出，记录sum并赋值
 
-[1038. BST转累加树（中等）](https://leetcode-cn.com/problems/binary-search-tree-to-greater-sum-tree)
+[1038. BST转累加树（中等）](https://leetcode-cn.com/problems/binary-search-tree-to-greater-sum-tree) 同上
 
-[450. 删除二叉搜索树中的节点（中等）](https://leetcode-cn.com/problems/delete-node-in-a-bst)
+[700. 二叉搜索树中的搜索（简单）](https://leetcode-cn.com/problems/search-in-a-binary-search-tree) 递归，=、<、> （BST增删改查的框架）
 
-[701. 二叉搜索树中的插入操作（中等）](https://leetcode-cn.com/problems/insert-into-a-binary-search-tree)
+[701. 二叉搜索树中的插入操作（中等）](https://leetcode-cn.com/problems/insert-into-a-binary-search-tree) 遇空插入
 
-[700. 二叉搜索树中的搜索（简单）](https://leetcode-cn.com/problems/search-in-a-binary-search-tree)
+[450. 删除二叉搜索树中的节点（中等）](https://leetcode-cn.com/problems/delete-node-in-a-bst) 找到后，若单侧孩子为空，直接将另一侧提上来，若两侧均有孩子，找到右孩子的min提上来，右孩子继续调用删除方法
 
-[98. 验证二叉搜索树（中等）](https://leetcode-cn.com/problems/validate-binary-search-tree)
+[98. 验证二叉搜索树（中等）](https://leetcode-cn.com/problems/validate-binary-search-tree) 递归，root min max
 
 [96. 不同的二叉搜索树（简单）](https://leetcode-cn.com/problems/unique-binary-search-trees)
 
@@ -77,3 +77,59 @@
 [1373. 二叉搜索子树的最大键值和（困难）](https://leetcode-cn.com/problems/maximum-sum-bst-in-binary-tree)
 
 ## 6、图论
+
+[797. 所有可能的路径（中等）](https://leetcode-cn.com/problems/all-paths-from-source-to-target/)
+
+[207. 课程表](https://leetcode-cn.com/problems/course-schedule/)
+
+[210. 课程表 II](https://leetcode-cn.com/problems/course-schedule-ii/)
+
+[785. 判断二分图（中等）](https://leetcode-cn.com/problems/is-graph-bipartite)
+
+[886. 可能的二分法（中等）](https://leetcode-cn.com/problems/possible-bipartition)
+
+[323. 无向图中的连通分量数目（中等）](https://leetcode-cn.com/problems/number-of-connected-components-in-an-undirected-graph/)
+
+[130. 被围绕的区域（中等）](https://leetcode-cn.com/problems/surrounded-regions/)
+
+[990. 等式方程的可满足性（中等）](https://leetcode-cn.com/problems/satisfiability-of-equality-equations/)
+
+[261. 以图判树（中等）](https://leetcode-cn.com/problems/graph-valid-tree/)
+
+[1135. 最低成本联通所有城市（中等）](https://leetcode-cn.com/problems/connecting-cities-with-minimum-cost/)
+
+[1584. 连接所有点的最小费用（中等）](https://leetcode-cn.com/problems/min-cost-to-connect-all-points/)
+
+[277. 搜索名人（中等）](https://leetcode-cn.com/problems/find-the-celebrity/)
+
+[743. 网络延迟时间（中等）](https://leetcode-cn.com/problems/network-delay-time)
+
+[1514. 概率最大的路径（中等）](https://leetcode-cn.com/problems/path-with-maximum-probability)
+
+[1631. 最小体力消耗路径（中等）](https://leetcode-cn.com/problems/path-with-minimum-effort)
+
+## 7、设计数据结构
+
+[146. LRU缓存机制（中等）](https://leetcode-cn.com/problems/lru-cache/)
+
+[460. LFU缓存机制（困难）](https://leetcode-cn.com/problems/lfu-cache/)
+
+[895. 最大频率栈（困难）](https://leetcode-cn.com/problems/maximum-frequency-stack/)
+
+[295. 数据流的中位数（困难）](https://leetcode-cn.com/problems/find-median-from-data-stream)
+
+[355. 设计推特（中等）](https://leetcode-cn.com/problems/design-twitter)
+
+[496. 下一个更大元素I（简单）](https://leetcode-cn.com/problems/next-greater-element-i)
+
+[503. 下一个更大元素II（中等）](https://leetcode-cn.com/problems/next-greater-element-ii)
+
+[739. 每日温度（中等）](https://leetcode-cn.com/problems/daily-temperatures/)
+
+[239. 滑动窗口最大值（困难）](https://leetcode-cn.com/problems/sliding-window-maximum)
+
+[232. 用栈实现队列（简单）](https://leetcode-cn.com/problems/implement-queue-using-stacks)
+
+[225. 用队列实现栈（简单）](https://leetcode-cn.com/problems/implement-stack-using-queues)
+
+## 8、数组
