@@ -46,13 +46,13 @@
 
 [652. 寻找重复的子树（中等）](https://leetcode-cn.com/problems/find-duplicate-subtrees) HashMap记录每个节点为根后序遍历拼接出的字符串和出现次数
 
-[297. 二叉树的序列化和反序列化（困难）](https://leetcode-cn.com/problems/serialize-and-deserialize-binary-tree) 前中后序遍历三种解法
+[297. 二叉树的序列化和反序列化（困难）](https://leetcode-cn.com/problems/serialize-and-deserialize-binary-tree) 三种解法，前序、后续变形（中右左）、层序
 
-[341. 扁平化嵌套列表迭代器（中等）](https://leetcode-cn.com/problems/flatten-nested-list-iterator)
+[341. 扁平化嵌套列表迭代器（中等）](https://leetcode-cn.com/problems/flatten-nested-list-iterator) 主要实现hasNext方法，不难，但是比较有代表性
 
-[236. 二叉树的最近公共祖先（中等）](https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-tree/)
+[236. 二叉树的最近公共祖先（中等）](https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-tree/) 递归，处理三种情况
 
-[222. 完全二叉树的节点个数（中等）](https://leetcode-cn.com/problems/count-complete-tree-nodes)
+[222. 完全二叉树的节点个数（中等）](https://leetcode-cn.com/problems/count-complete-tree-nodes) 递归简单count，通过增加判断左右子树同等高度时节点总数为2^h-1来缩短时间复杂度
 
 ## 5、二叉搜索树（BST）
 
@@ -70,11 +70,11 @@
 
 [98. 验证二叉搜索树（中等）](https://leetcode-cn.com/problems/validate-binary-search-tree) 递归，root min max
 
-[96. 不同的二叉搜索树（简单）](https://leetcode-cn.com/problems/unique-binary-search-trees)
+[96. 不同的二叉搜索树（中等）](https://leetcode-cn.com/problems/unique-binary-search-trees) 递归，该节点可能总数=左子树可能总数*右子树可能总数
 
-[95. 不同的二叉搜索树II（中等）](https://leetcode-cn.com/problems/unique-binary-search-trees-ii)
+[95. 不同的二叉搜索树II（中等）](https://leetcode-cn.com/problems/unique-binary-search-trees-ii) 辅助函数递归，每次新建一个list（确保主函数取到的是最外层完整的树），三层for循环
 
-[1373. 二叉搜索子树的最大键值和（困难）](https://leetcode-cn.com/problems/maximum-sum-bst-in-binary-tree)
+[1373. 二叉搜索子树的最大键值和（困难）](https://leetcode-cn.com/problems/maximum-sum-bst-in-binary-tree) 辅助函数后序遍历递归，记录当前节点int[isBST, minVlue, maxVlue, sum]，是BST的话更新maxSum值，注意maxSum初始化为0（默认null节点最大和为0）
 
 ## 6、图论
 
@@ -133,3 +133,59 @@
 [225. 用队列实现栈（简单）](https://leetcode-cn.com/problems/implement-stack-using-queues)
 
 ## 8、数组
+
+[303. 区域和检索 - 数组不可变（中等）](https://leetcode-cn.com/problems/range-sum-query-immutable) 构建长度大一的preSum记录前缀和
+
+[304. 二维区域和检索 - 矩阵不可变（中等）](https://leetcode-cn.com/problems/range-sum-query-2d-immutable) 构建[x+1][y+1]的preSum，记录从(1,1)到(m,n)的前缀和，注意推导公式
+
+[560. 和为K的子数组（中等）](https://leetcode-cn.com/problems/subarray-sum-equals-k) 暴力循环。follow up：构建HashMap
+
+[370. 区间加法（中等）](https://leetcode-cn.com/problems/range-addition/)
+
+[1109. 航班预订统计（中等）](https://leetcode-cn.com/problems/corporate-flight-bookings/)
+
+[1094. 拼车（中等）](https://leetcode-cn.com/problems/car-pooling/)
+
+[167. 两数之和 II - 输入有序数组（中等）](https://leetcode-cn.com/problems/two-sum-ii-input-array-is-sorted)
+
+[344. 反转字符串（简单）](https://leetcode-cn.com/problems/reverse-string/)
+
+[76. 最小覆盖子串（困难）](https://leetcode-cn.com/problems/minimum-window-substring)
+
+[567. 字符串的排列（中等）](https://leetcode-cn.com/problems/permutation-in-string)
+
+[438. 找到字符串中所有字母异位词（中等）](https://leetcode-cn.com/problems/find-all-anagrams-in-a-string)
+
+[3. 无重复字符的最长子串（中等）](https://leetcode-cn.com/problems/longest-substring-without-repeating-characters)
+
+[704. 二分查找（简单）](https://leetcode-cn.com/problems/binary-search)
+
+[34. 在排序数组中查找元素的第一个和最后一个位置（中等）](https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/)
+
+[875. 爱吃香蕉的珂珂（中等）](https://leetcode-cn.com/problems/koko-eating-bananas/)
+
+[1011. 在D天内送达包裹的能力（中等）](https://leetcode-cn.com/problems/capacity-to-ship-packages-within-d-days/)
+
+[410. 分割数组的最大值（困难）](https://leetcode-cn.com/problems/split-array-largest-sum/)
+
+[870. 优势洗牌（中等）](https://leetcode-cn.com/problems/advantage-shuffle)
+
+[380. 常数时间插入、删除和获取随机元素（中等）](https://leetcode-cn.com/problems/insert-delete-getrandom-o1)
+
+[710. 黑名单中的随机数（困难）](https://leetcode-cn.com/problems/random-pick-with-blacklist)
+
+[316. 去除重复字母（中等）](https://leetcode-cn.com/problems/remove-duplicate-letters)
+
+[1081. 不同字符的最小子序列（中等）](https://leetcode-cn.com/problems/smallest-subsequence-of-distinct-characters)
+
+[26. 删除有序数组中的重复项（简单）](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/)
+
+[83. 删除排序链表中的重复元素（简单）](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list/)
+
+[27. 移除元素（简单）](https://leetcode-cn.com/problems/remove-element/)
+
+[283. 移动零（简单）](https://leetcode-cn.com/problems/move-zeroes/)
+
+[1. 两数之和（简单）](https://leetcode-cn.com/problems/two-sum)
+
+[170. 两数之和 III - 数据结构设计（简单）](https://leetcode-cn.com/problems/two-sum-iii-data-structure-design)

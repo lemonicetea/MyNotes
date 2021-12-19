@@ -32,6 +32,11 @@ for (ListNode head : lists) {
 int i = l1 != null ? l1.val : 0;
 ```
 
+## int
+```java
+int i = Integer.parseInt("123");
+```
+
 ## 数组
 
 ```java
@@ -47,6 +52,24 @@ return new int[]{i, j};
 String str = new String("hello");
 // 截取，注意左闭右开
 String s2 = str.substring(0, 4)
+str.split("l");
+str.equals("world");
+```
+
+## StringBuilder
+
+```java
+StringBuilder sb = new StringBuilder();
+sb.append("t");
+sb.toString();
+```
+
+## 链表
+
+```java
+List<Integer> list = new LinkedList<>();
+list.add(); list.remove(0); list.addFirst(123);
+list.isEmpty(); list.size();
 ```
 
 ## 哈希表
