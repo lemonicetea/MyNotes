@@ -86,9 +86,9 @@
 
 [370. 区间加法（中等）PLUS会员](https://leetcode-cn.com/problems/range-addition/)
 
-[1109. 航班预订统计（中等）](https://leetcode-cn.com/problems/corporate-flight-bookings/) 构建差额数组
+[1109. 航班预订统计（中等）](https://leetcode-cn.com/problems/corporate-flight-bookings/) 构建差分数组
 
-[1094. 拼车（中等）](https://leetcode-cn.com/problems/car-pooling/) 同上
+[1094. 拼车（中等）](https://leetcode-cn.com/problems/car-pooling/) 构建差分数组
 
 [167. 两数之和 II - 输入有序数组（简单）](https://leetcode-cn.com/problems/two-sum-ii-input-array-is-sorted) 左右指针
 
@@ -102,9 +102,9 @@
 
 [3. 无重复字符的最长子串（中等）](https://leetcode-cn.com/problems/longest-substring-without-repeating-characters) 滑动窗口，只需要一个map记录window即可，内层循环条件改为window.get(i) > 1，外层循环更新res
 
-[704. 二分查找（简单）](https://leetcode-cn.com/problems/binary-search)
+[704. 二分查找（简单）](https://leetcode-cn.com/problems/binary-search) 二分查找
 
-[34. 在排序数组中查找元素的第一个和最后一个位置（中等）](https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/)
+[34. 在排序数组中查找元素的第一个和最后一个位置（中等）](https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/) 二分查找，两个辅助函数左右边界
 
 [875. 爱吃香蕉的珂珂（中等）](https://leetcode-cn.com/problems/koko-eating-bananas/)
 
