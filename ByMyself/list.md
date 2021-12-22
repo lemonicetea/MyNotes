@@ -76,63 +76,7 @@
 
 [1373. 二叉搜索子树的最大键值和（困难）](https://leetcode-cn.com/problems/maximum-sum-bst-in-binary-tree) 辅助函数后序遍历递归，记录当前节点int[isBST, minVlue, maxVlue, sum]，是BST的话更新maxSum值，注意maxSum初始化为0（默认null节点最大和为0）
 
-## 6、图论
-
-[797. 所有可能的路径（中等）](https://leetcode-cn.com/problems/all-paths-from-source-to-target/)
-
-[207. 课程表](https://leetcode-cn.com/problems/course-schedule/)
-
-[210. 课程表 II](https://leetcode-cn.com/problems/course-schedule-ii/)
-
-[785. 判断二分图（中等）](https://leetcode-cn.com/problems/is-graph-bipartite)
-
-[886. 可能的二分法（中等）](https://leetcode-cn.com/problems/possible-bipartition)
-
-[323. 无向图中的连通分量数目（中等）](https://leetcode-cn.com/problems/number-of-connected-components-in-an-undirected-graph/)
-
-[130. 被围绕的区域（中等）](https://leetcode-cn.com/problems/surrounded-regions/)
-
-[990. 等式方程的可满足性（中等）](https://leetcode-cn.com/problems/satisfiability-of-equality-equations/)
-
-[261. 以图判树（中等）](https://leetcode-cn.com/problems/graph-valid-tree/)
-
-[1135. 最低成本联通所有城市（中等）](https://leetcode-cn.com/problems/connecting-cities-with-minimum-cost/)
-
-[1584. 连接所有点的最小费用（中等）](https://leetcode-cn.com/problems/min-cost-to-connect-all-points/)
-
-[277. 搜索名人（中等）](https://leetcode-cn.com/problems/find-the-celebrity/)
-
-[743. 网络延迟时间（中等）](https://leetcode-cn.com/problems/network-delay-time)
-
-[1514. 概率最大的路径（中等）](https://leetcode-cn.com/problems/path-with-maximum-probability)
-
-[1631. 最小体力消耗路径（中等）](https://leetcode-cn.com/problems/path-with-minimum-effort)
-
-## 7、设计数据结构
-
-[146. LRU缓存机制（中等）](https://leetcode-cn.com/problems/lru-cache/)
-
-[460. LFU缓存机制（困难）](https://leetcode-cn.com/problems/lfu-cache/)
-
-[895. 最大频率栈（困难）](https://leetcode-cn.com/problems/maximum-frequency-stack/)
-
-[295. 数据流的中位数（困难）](https://leetcode-cn.com/problems/find-median-from-data-stream)
-
-[355. 设计推特（中等）](https://leetcode-cn.com/problems/design-twitter)
-
-[496. 下一个更大元素I（简单）](https://leetcode-cn.com/problems/next-greater-element-i)
-
-[503. 下一个更大元素II（中等）](https://leetcode-cn.com/problems/next-greater-element-ii)
-
-[739. 每日温度（中等）](https://leetcode-cn.com/problems/daily-temperatures/)
-
-[239. 滑动窗口最大值（困难）](https://leetcode-cn.com/problems/sliding-window-maximum)
-
-[232. 用栈实现队列（简单）](https://leetcode-cn.com/problems/implement-queue-using-stacks)
-
-[225. 用队列实现栈（简单）](https://leetcode-cn.com/problems/implement-stack-using-queues)
-
-## 8、数组
+## 6、数组
 
 [303. 区域和检索 - 数组不可变（中等）](https://leetcode-cn.com/problems/range-sum-query-immutable) 构建长度大一的preSum记录前缀和
 
@@ -140,23 +84,23 @@
 
 [560. 和为K的子数组（中等）](https://leetcode-cn.com/problems/subarray-sum-equals-k) 暴力循环。follow up：构建HashMap
 
-[370. 区间加法（中等）](https://leetcode-cn.com/problems/range-addition/)
+[370. 区间加法（中等）PLUS会员](https://leetcode-cn.com/problems/range-addition/)
 
-[1109. 航班预订统计（中等）](https://leetcode-cn.com/problems/corporate-flight-bookings/)
+[1109. 航班预订统计（中等）](https://leetcode-cn.com/problems/corporate-flight-bookings/) 构建差额数组
 
-[1094. 拼车（中等）](https://leetcode-cn.com/problems/car-pooling/)
+[1094. 拼车（中等）](https://leetcode-cn.com/problems/car-pooling/) 同上
 
-[167. 两数之和 II - 输入有序数组（中等）](https://leetcode-cn.com/problems/two-sum-ii-input-array-is-sorted)
+[167. 两数之和 II - 输入有序数组（简单）](https://leetcode-cn.com/problems/two-sum-ii-input-array-is-sorted) 左右指针
 
-[344. 反转字符串（简单）](https://leetcode-cn.com/problems/reverse-string/)
+[344. 反转字符串（简单）](https://leetcode-cn.com/problems/reverse-string/) 左右指针
 
-[76. 最小覆盖子串（困难）](https://leetcode-cn.com/problems/minimum-window-substring)
+[76. 最小覆盖子串（困难）](https://leetcode-cn.com/problems/minimum-window-substring) 滑动窗口，两个map分别记录need和window，一个int记录valid，每满足一个字符valid++。注意字符串的处理，注意细节即可
 
-[567. 字符串的排列（中等）](https://leetcode-cn.com/problems/permutation-in-string)
+[567. 字符串的排列（中等）](https://leetcode-cn.com/problems/permutation-in-string) 滑动窗口，注意窗口大小可以固定，约束条件可以优化
 
-[438. 找到字符串中所有字母异位词（中等）](https://leetcode-cn.com/problems/find-all-anagrams-in-a-string)
+[438. 找到字符串中所有字母异位词（中等）](https://leetcode-cn.com/problems/find-all-anagrams-in-a-string) 滑动窗口，同上
 
-[3. 无重复字符的最长子串（中等）](https://leetcode-cn.com/problems/longest-substring-without-repeating-characters)
+[3. 无重复字符的最长子串（中等）](https://leetcode-cn.com/problems/longest-substring-without-repeating-characters) 滑动窗口，只需要一个map记录window即可，内层循环条件改为window.get(i) > 1，外层循环更新res
 
 [704. 二分查找（简单）](https://leetcode-cn.com/problems/binary-search)
 
@@ -189,3 +133,59 @@
 [1. 两数之和（简单）](https://leetcode-cn.com/problems/two-sum)
 
 [170. 两数之和 III - 数据结构设计（简单）](https://leetcode-cn.com/problems/two-sum-iii-data-structure-design)
+
+## 7、图论
+
+[797. 所有可能的路径（中等）](https://leetcode-cn.com/problems/all-paths-from-source-to-target/)
+
+[207. 课程表](https://leetcode-cn.com/problems/course-schedule/)
+
+[210. 课程表 II](https://leetcode-cn.com/problems/course-schedule-ii/)
+
+[785. 判断二分图（中等）](https://leetcode-cn.com/problems/is-graph-bipartite)
+
+[886. 可能的二分法（中等）](https://leetcode-cn.com/problems/possible-bipartition)
+
+[323. 无向图中的连通分量数目（中等）](https://leetcode-cn.com/problems/number-of-connected-components-in-an-undirected-graph/)
+
+[130. 被围绕的区域（中等）](https://leetcode-cn.com/problems/surrounded-regions/)
+
+[990. 等式方程的可满足性（中等）](https://leetcode-cn.com/problems/satisfiability-of-equality-equations/)
+
+[261. 以图判树（中等）](https://leetcode-cn.com/problems/graph-valid-tree/)
+
+[1135. 最低成本联通所有城市（中等）](https://leetcode-cn.com/problems/connecting-cities-with-minimum-cost/)
+
+[1584. 连接所有点的最小费用（中等）](https://leetcode-cn.com/problems/min-cost-to-connect-all-points/)
+
+[277. 搜索名人（中等）](https://leetcode-cn.com/problems/find-the-celebrity/)
+
+[743. 网络延迟时间（中等）](https://leetcode-cn.com/problems/network-delay-time)
+
+[1514. 概率最大的路径（中等）](https://leetcode-cn.com/problems/path-with-maximum-probability)
+
+[1631. 最小体力消耗路径（中等）](https://leetcode-cn.com/problems/path-with-minimum-effort)
+
+## 8、设计数据结构
+
+[146. LRU缓存机制（中等）](https://leetcode-cn.com/problems/lru-cache/)
+
+[460. LFU缓存机制（困难）](https://leetcode-cn.com/problems/lfu-cache/)
+
+[895. 最大频率栈（困难）](https://leetcode-cn.com/problems/maximum-frequency-stack/)
+
+[295. 数据流的中位数（困难）](https://leetcode-cn.com/problems/find-median-from-data-stream)
+
+[355. 设计推特（中等）](https://leetcode-cn.com/problems/design-twitter)
+
+[496. 下一个更大元素I（简单）](https://leetcode-cn.com/problems/next-greater-element-i)
+
+[503. 下一个更大元素II（中等）](https://leetcode-cn.com/problems/next-greater-element-ii)
+
+[739. 每日温度（中等）](https://leetcode-cn.com/problems/daily-temperatures/)
+
+[239. 滑动窗口最大值（困难）](https://leetcode-cn.com/problems/sliding-window-maximum)
+
+[232. 用栈实现队列（简单）](https://leetcode-cn.com/problems/implement-queue-using-stacks)
+
+[225. 用队列实现栈（简单）](https://leetcode-cn.com/problems/implement-stack-using-queues)

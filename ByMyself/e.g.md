@@ -77,6 +77,7 @@ list.isEmpty(); list.size();
 ```java
 // 创建
 HashMap<Integer, Integer> map = new HashMap<>();
+HashMap<Character, Integer> window = new HashMap<>();
 
 // 查找-返回布尔
 map.containsKey(tmp);
@@ -87,6 +88,8 @@ map.get(tmp);
 
 // 插入
 map.put(nums[i], i);
+
+window.getOrDefault(a, 0);
 ```
 
 ## 优先队列（最小堆）
