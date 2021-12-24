@@ -106,9 +106,9 @@
 
 [34. 在排序数组中查找元素的第一个和最后一个位置（中等）](https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/) 二分查找，两个辅助函数左右边界
 
-[875. 爱吃香蕉的珂珂（中等）](https://leetcode-cn.com/problems/koko-eating-bananas/)
+[875. 爱吃香蕉的珂珂（中等）](https://leetcode-cn.com/problems/koko-eating-bananas/) 二分查找，注意找到f(x)和target
 
-[1011. 在D天内送达包裹的能力（中等）](https://leetcode-cn.com/problems/capacity-to-ship-packages-within-d-days/)
+[1011. 在D天内送达包裹的能力（中等）](https://leetcode-cn.com/problems/capacity-to-ship-packages-within-d-days/) 二分查找，注意找到f(x)和target
 
 [410. 分割数组的最大值（困难）](https://leetcode-cn.com/problems/split-array-largest-sum/)
 
