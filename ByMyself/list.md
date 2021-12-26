@@ -1,4 +1,4 @@
-# 做过的题分类
+# 做过的数据结构题分类
 
 ## 1、单链表常规思路
 
@@ -110,31 +110,55 @@
 
 [1011. 在D天内送达包裹的能力（中等）](https://leetcode-cn.com/problems/capacity-to-ship-packages-within-d-days/) 二分查找，注意找到f(x)和target
 
-[410. 分割数组的最大值（困难）](https://leetcode-cn.com/problems/split-array-largest-sum/)
+[410. 分割数组的最大值（困难）](https://leetcode-cn.com/problems/split-array-largest-sum/) 二分查找，子数组和的最大值和分割数量是单调递减关系
 
-[870. 优势洗牌（中等）](https://leetcode-cn.com/problems/advantage-shuffle)
+[870. 优势洗牌（中等）](https://leetcode-cn.com/problems/advantage-shuffle) n1升序排序，n2存入最大优先队列，n1双指针，用最大比最大，比不过用最小换人头
 
-[380. 常数时间插入、删除和获取随机元素（中等）](https://leetcode-cn.com/problems/insert-delete-getrandom-o1)
+[380. 常数时间插入、删除和获取随机元素（中等）](https://leetcode-cn.com/problems/insert-delete-getrandom-o1) 用list实现，HashMap作为辅助记录val-index使得查找降为o(1)，删除时注意各语句执行顺序
 
-[710. 黑名单中的随机数（困难）](https://leetcode-cn.com/problems/random-pick-with-blacklist)
+[710. 黑名单中的随机数（困难）](https://leetcode-cn.com/problems/random-pick-with-blacklist) [0, end)为白名单，[end, n)为黑名单，若黑名单出现在了白名单的区域内，用map记录，将val指向黑名单区域内，通过映射关系将白名单紧凑在前区间内
 
-[316. 去除重复字母（中等）](https://leetcode-cn.com/problems/remove-duplicate-letters)
+[316. 去除重复字母（中等）](https://leetcode-cn.com/problems/remove-duplicate-letters) 用stack存储非重复字符，利用字符的ASCII码，构造int[] count和boolean[] instack，入栈时与栈顶元素比较大小，最后构造StringBuilder并反转即可。最终得到遵循ASCII码大小且相对顺序不变的子序列
 
-[1081. 不同字符的最小子序列（中等）](https://leetcode-cn.com/problems/smallest-subsequence-of-distinct-characters)
+[1081. 不同字符的最小子序列（中等）](https://leetcode-cn.com/problems/smallest-subsequence-of-distinct-characters) 同316题，一套代码
 
-[26. 删除有序数组中的重复项（简单）](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/)
+[26. 删除有序数组中的重复项（简单）](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/) 快慢指针
 
-[83. 删除排序链表中的重复元素（简单）](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list/)
+[83. 删除排序链表中的重复元素（简单）](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list/) 快慢指针
 
-[27. 移除元素（简单）](https://leetcode-cn.com/problems/remove-element/)
+[27. 移除元素（简单）](https://leetcode-cn.com/problems/remove-element/) 快慢指针
 
-[283. 移动零（简单）](https://leetcode-cn.com/problems/move-zeroes/)
+[283. 移动零（简单）](https://leetcode-cn.com/problems/move-zeroes/) 快慢指针，前面部位，最后剩下的全部填入零
 
-[1. 两数之和（简单）](https://leetcode-cn.com/problems/two-sum)
+[1. 两数之和（简单）](https://leetcode-cn.com/problems/two-sum) 构造HashMap记录val-index
 
-[170. 两数之和 III - 数据结构设计（简单）](https://leetcode-cn.com/problems/two-sum-iii-data-structure-design)
+[170. 两数之和 III - 数据结构设计（简单）PLUS会员](https://leetcode-cn.com/problems/two-sum-iii-data-structure-design) 
 
-## 7、图论
+## 7、设计数据结构
+
+[146. LRU缓存机制（中等）](https://leetcode-cn.com/problems/lru-cache/)
+
+[460. LFU缓存机制（困难）](https://leetcode-cn.com/problems/lfu-cache/)
+
+[895. 最大频率栈（困难）](https://leetcode-cn.com/problems/maximum-frequency-stack/)
+
+[295. 数据流的中位数（困难）](https://leetcode-cn.com/problems/find-median-from-data-stream)
+
+[355. 设计推特（中等）](https://leetcode-cn.com/problems/design-twitter)
+
+[496. 下一个更大元素I（简单）](https://leetcode-cn.com/problems/next-greater-element-i)
+
+[503. 下一个更大元素II（中等）](https://leetcode-cn.com/problems/next-greater-element-ii)
+
+[739. 每日温度（中等）](https://leetcode-cn.com/problems/daily-temperatures/)
+
+[239. 滑动窗口最大值（困难）](https://leetcode-cn.com/problems/sliding-window-maximum)
+
+[232. 用栈实现队列（简单）](https://leetcode-cn.com/problems/implement-queue-using-stacks)
+
+[225. 用队列实现栈（简单）](https://leetcode-cn.com/problems/implement-stack-using-queues)
+
+## 图论
 
 [797. 所有可能的路径（中等）](https://leetcode-cn.com/problems/all-paths-from-source-to-target/)
 
@@ -165,27 +189,3 @@
 [1514. 概率最大的路径（中等）](https://leetcode-cn.com/problems/path-with-maximum-probability)
 
 [1631. 最小体力消耗路径（中等）](https://leetcode-cn.com/problems/path-with-minimum-effort)
-
-## 8、设计数据结构
-
-[146. LRU缓存机制（中等）](https://leetcode-cn.com/problems/lru-cache/)
-
-[460. LFU缓存机制（困难）](https://leetcode-cn.com/problems/lfu-cache/)
-
-[895. 最大频率栈（困难）](https://leetcode-cn.com/problems/maximum-frequency-stack/)
-
-[295. 数据流的中位数（困难）](https://leetcode-cn.com/problems/find-median-from-data-stream)
-
-[355. 设计推特（中等）](https://leetcode-cn.com/problems/design-twitter)
-
-[496. 下一个更大元素I（简单）](https://leetcode-cn.com/problems/next-greater-element-i)
-
-[503. 下一个更大元素II（中等）](https://leetcode-cn.com/problems/next-greater-element-ii)
-
-[739. 每日温度（中等）](https://leetcode-cn.com/problems/daily-temperatures/)
-
-[239. 滑动窗口最大值（困难）](https://leetcode-cn.com/problems/sliding-window-maximum)
-
-[232. 用栈实现队列（简单）](https://leetcode-cn.com/problems/implement-queue-using-stacks)
-
-[225. 用队列实现栈（简单）](https://leetcode-cn.com/problems/implement-stack-using-queues)
