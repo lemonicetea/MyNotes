@@ -1,4 +1,4 @@
-# 做过的数据结构题分类
+# 做过的数据结构题分类（87题）
 
 ## 1、单链表常规思路
 
@@ -136,9 +136,9 @@
 
 ## 7、设计数据结构
 
-[146. LRU缓存机制（中等）](https://leetcode-cn.com/problems/lru-cache/)
+[146. LRU缓存机制（中等）](https://leetcode-cn.com/problems/lru-cache/) Least Recently Used 借助哈希双向链表LinkedHashMap结构，注意记住该数据结构常见的方法
 
-[460. LFU缓存机制（困难）](https://leetcode-cn.com/problems/lfu-cache/)
+[460. LFU缓存机制（困难）](https://leetcode-cn.com/problems/lfu-cache/) Least Frequently Used 淘汰访问频次最低的数据，频次最低的有多条，则淘汰最旧的。借助链表哈希集合LinkedHashSet结构
 
 [895. 最大频率栈（困难）](https://leetcode-cn.com/problems/maximum-frequency-stack/)
 
@@ -154,11 +154,11 @@
 
 [239. 滑动窗口最大值（困难）](https://leetcode-cn.com/problems/sliding-window-maximum)
 
-[232. 用栈实现队列（简单）](https://leetcode-cn.com/problems/implement-queue-using-stacks)
+[232. 用栈实现队列（简单）](https://leetcode-cn.com/problems/implement-queue-using-stacks) 用两个stack实现，s1队尾，s2队头
 
 [225. 用队列实现栈（简单）](https://leetcode-cn.com/problems/implement-stack-using-queues)
 
-## 图论
+## 8、图论
 
 [797. 所有可能的路径（中等）](https://leetcode-cn.com/problems/all-paths-from-source-to-target/)
 

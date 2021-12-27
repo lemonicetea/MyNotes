@@ -92,6 +92,34 @@ map.put(nums[i], i);
 window.getOrDefault(a, 0);
 ```
 
+## LinkedHashMap
+
+LinkedHashMap是继承于HashMap，是基于HashMap和双向链表来实现的，有序
+
+```java
+LinkedHashMap<Integer, Integer> cache = new LinkedHashMap<>();
+```
+
+## LinkedHashSet
+
+## 栈
+
+```java
+Stack<Integer> stack = new Stack<>();
+stack.push();
+stack.pop();
+stack.peek();
+```
+
+## 队列
+
+```java
+Queue<Integer> queue = new LinkedList<>();
+queue.add(); queue.offer();
+queue.poll(); queue.peek();
+queue.size();
+```
+
 ## 优先队列（最小堆）
 
 ```java
