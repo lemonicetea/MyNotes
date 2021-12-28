@@ -78,18 +78,16 @@ list.isEmpty(); list.size();
 // 创建
 HashMap<Integer, Integer> map = new HashMap<>();
 HashMap<Character, Integer> window = new HashMap<>();
-
 // 查找-返回布尔
 map.containsKey(tmp);
 map.containsValue(tmp);
-
-// 通过key获取value
 map.get(tmp);
-
-// 插入
 map.put(nums[i], i);
-
+map.remove(1);
+// 查找第一个参数对应的val，有则返回val，没有的话则返回第二个参数
 window.getOrDefault(a, 0);
+// 如果map中没有第一个参数为key的键值对，则插入以第一和第二个参数为K-V的键值对
+map.putIfAbsent(1, 1)
 ```
 
 ## LinkedHashMap
@@ -98,9 +96,29 @@ LinkedHashMap是继承于HashMap，是基于HashMap和双向链表来实现的�
 
 ```java
 LinkedHashMap<Integer, Integer> cache = new LinkedHashMap<>();
+cache.put(key, val);
+cache.get(key);
+cache.containsKey(key);
+cache.remove(key);
+cache.size();
+cache.keySet(); // 返回key集合
 ```
 
 ## LinkedHashSet
+
+```java
+LinkedHashSet<Integer> keys = new LinkedHashSet<>();
+keys.iterator().next();
+```
+
+## 集合
+
+Set接口继承于Collection接口，是一个不允许出现重复元素，并且无序的集合，主要有HashSet和TreeSet两大实现类。
+
+```java
+Set<Integer> set = new HashSet<>();
+set.iterator(); // 遍历set
+```
 
 ## 栈
 

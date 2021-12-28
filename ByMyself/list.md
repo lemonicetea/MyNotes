@@ -136,11 +136,11 @@
 
 ## 7、设计数据结构
 
-[146. LRU缓存机制（中等）](https://leetcode-cn.com/problems/lru-cache/) Least Recently Used 借助哈希双向链表LinkedHashMap结构，注意记住该数据结构常见的方法
+[146. LRU缓存机制（中等）](https://leetcode-cn.com/problems/lru-cache/) Least Recently Used。淘汰时间最远的数据。借助一个哈希双向链表LinkedHashMap和一个int常量
 
-[460. LFU缓存机制（困难）](https://leetcode-cn.com/problems/lfu-cache/) Least Frequently Used 淘汰访问频次最低的数据，频次最低的有多条，则淘汰最旧的。借助链表哈希集合LinkedHashSet结构
+[460. LFU缓存机制（困难）](https://leetcode-cn.com/problems/lfu-cache/) Least Frequently Used。淘汰访问频次最低的数据，频次最低的有多条，则淘汰最旧的。使用到了不常见的数据结构：链表哈希集合LinkedHashSet。借助3个HashMap（KV表、KF表、FKs表，Ks使用LHS集合）和2个int常量（记录容量和最小频率）
 
-[895. 最大频率栈（困难）](https://leetcode-cn.com/problems/maximum-frequency-stack/)
+[895. 最大频率栈（困难）](https://leetcode-cn.com/problems/maximum-frequency-stack/) 借助2个HashMap（VF表、FVs表，Vs使用stack）和1个int常量
 
 [295. 数据流的中位数（困难）](https://leetcode-cn.com/problems/find-median-from-data-stream)
 
@@ -156,7 +156,7 @@
 
 [232. 用栈实现队列（简单）](https://leetcode-cn.com/problems/implement-queue-using-stacks) 用两个stack实现，s1队尾，s2队头
 
-[225. 用队列实现栈（简单）](https://leetcode-cn.com/problems/implement-stack-using-queues)
+[225. 用队列实现栈（简单）](https://leetcode-cn.com/problems/implement-stack-using-queues) 一个队列，一个变量记录最后入队的元素值，每次pop按顺序将元素从队头取出重新塞入队尾，变量记录倒数第二个元素
 
 ## 8、图论
 
