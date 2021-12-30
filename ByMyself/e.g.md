@@ -118,6 +118,7 @@ Set接口继承于Collection接口，是一个不允许出现重复元素，并�
 ```java
 Set<Integer> set = new HashSet<>();
 set.iterator(); // 遍历set
+set.add(); set.remove();
 ```
 
 ## 栈
@@ -171,6 +172,8 @@ int compare (Integer a, Integer b) {
 
 // 插入
 PriorityQueue.add();
+PriorityQueue.offer();
 // 弹出（最小值）
 PriorityQueue.poll();
+PriorityQueue.peek();
 ```

@@ -142,15 +142,15 @@
 
 [895. 最大频率栈（困难）](https://leetcode-cn.com/problems/maximum-frequency-stack/) 借助2个HashMap（VF表、FVs表，Vs使用stack）和1个int常量
 
-[295. 数据流的中位数（困难）](https://leetcode-cn.com/problems/find-median-from-data-stream)
+[295. 数据流的中位数（困难）](https://leetcode-cn.com/problems/find-median-from-data-stream) 一个最大堆和一个最小堆，控制两边size差值在1以内
 
-[355. 设计推特（中等）](https://leetcode-cn.com/problems/design-twitter)
+[355. 设计推特（中等）](https://leetcode-cn.com/problems/design-twitter) 需要设计Tweet、User两个私有类，按时间线展示动态的方法里需要运用到合并K个有序链表的技巧，其他没有难度，注意细节
 
-[496. 下一个更大元素I（简单）](https://leetcode-cn.com/problems/next-greater-element-i)
+[496. 下一个更大元素I（简单）](https://leetcode-cn.com/problems/next-greater-element-i) 倒序循环数组，使用栈暂存和比较内容
 
-[503. 下一个更大元素II（中等）](https://leetcode-cn.com/problems/next-greater-element-ii)
+[503. 下一个更大元素II（中等）](https://leetcode-cn.com/problems/next-greater-element-ii) 2倍长度倒序循环数组，模除取余数存入对应的index中
 
-[739. 每日温度（中等）](https://leetcode-cn.com/problems/daily-temperatures/)
+[739. 每日温度（中等）](https://leetcode-cn.com/problems/daily-temperatures/) NGE模型的实际应用，换汤不换药
 
 [239. 滑动窗口最大值（困难）](https://leetcode-cn.com/problems/sliding-window-maximum)
 
