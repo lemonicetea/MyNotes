@@ -67,9 +67,18 @@ sb.toString();
 ## 链表
 
 ```java
+// ArrayList
+List<Integer> alist = new ArrayList<>();
+
+// LinkedList 双向链表
 List<Integer> list = new LinkedList<>();
-list.add(); list.remove(0); list.addFirst(123);
-list.isEmpty(); list.size();
+list.add(); list.addFirst(123); list.addLast();
+list.offer(); list.offerFirst(123); list.offerLast();
+list.get(); list.getFirst(123); list.getLast();
+list.peek(); list.peekFirst(123); list.peekLast();
+list.poll(); list.pollFirst(123); list.pollLast();
+list.remove(0); list.removeFirst(123); list.removeLast();
+list.clear(); list.isEmpty(); list.size();
 ```
 
 ## 哈希表
@@ -81,8 +90,8 @@ HashMap<Character, Integer> window = new HashMap<>();
 // 查找-返回布尔
 map.containsKey(tmp);
 map.containsValue(tmp);
-map.get(tmp);
 map.put(nums[i], i);
+map.get(tmp);
 map.remove(1);
 // 查找第一个参数对应的val，有则返回val，没有的话则返回第二个参数
 window.getOrDefault(a, 0);
@@ -104,21 +113,21 @@ cache.size();
 cache.keySet(); // 返回key集合
 ```
 
-## LinkedHashSet
-
-```java
-LinkedHashSet<Integer> keys = new LinkedHashSet<>();
-keys.iterator().next();
-```
-
 ## 集合
 
 Set接口继承于Collection接口，是一个不允许出现重复元素，并且无序的集合，主要有HashSet和TreeSet两大实现类。
 
 ```java
 Set<Integer> set = new HashSet<>();
-set.iterator(); // 遍历set
 set.add(); set.remove();
+set.iterator(); // 遍历set
+```
+
+## LinkedHashSet
+
+```java
+LinkedHashSet<Integer> keys = new LinkedHashSet<>();
+keys.iterator().next();
 ```
 
 ## 栈

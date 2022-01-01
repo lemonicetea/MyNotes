@@ -2,19 +2,19 @@
 
 ## 1、基本技巧
 
-[509. 斐波那契数（简单）](https://leetcode-cn.com/problems/fibonacci-number)
+[509. 斐波那契数（简单）](https://leetcode-cn.com/problems/fibonacci-number) 1、使用给好的f(n)函数暴力解；2、利用备忘录+递归自顶向下解；3、使用DP table+迭代自底向上解
 
-[322. 零钱兑换（中等）](https://leetcode-cn.com/problems/coin-change)
+[322. 零钱兑换（中等）](https://leetcode-cn.com/problems/coin-change) 使用dp table，双重for循环，dp[i] = dp[i - coin] + 1
 
-[300. 最长递增子序列（中等）](https://leetcode-cn.com/problems/longest-increasing-subsequence)
+[300. 最长递增子序列（中等）](https://leetcode-cn.com/problems/longest-increasing-subsequence) Longest Increasing Subsequence 1、使用dp table，双重循环，dp[i] = Math.max(dp[j] + 1, dp[i]) 2、二分查找+patience sorting（耐心排序），最后返回堆数即可
 
-[931. 下降路径最小和（中等）](https://leetcode-cn.com/problems/minimum-falling-path-sum/)
+[931. 下降路径最小和（中等）](https://leetcode-cn.com/problems/minimum-falling-path-sum/) memo+递归，注意base case和处理越界
 
 [494. 目标和（中等）](https://leetcode-cn.com/problems/target-sum)
 
 ## 2、子序列类型问题
 
-[72. 编辑距离（困难）](https://leetcode-cn.com/problems/edit-distance)
+[72. 编辑距离（困难）](https://leetcode-cn.com/problems/edit-distance) 1、memo+递归；2、dp table+迭代。注意base case和处理越界
 
 [300. 最长递增子序列（中等）](https://leetcode-cn.com/problems/longest-increasing-subsequence)
 
