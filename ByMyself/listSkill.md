@@ -2,9 +2,9 @@
 
 ## 1、暴力搜索-回溯
 
-[46. 全排列（中等）](https://leetcode-cn.com/problems/permutations)
+[46. 全排列（中等）](https://leetcode-cn.com/problems/permutations) 用一个list记录track，递归所有可能的情况，注意每次在track中放入一种情况并进入递归后，要把该情况移除，已达到“回溯”的效果
 
-[51. N皇后（困难）](https://leetcode-cn.com/problems/n-queens)
+[51. N皇后（困难）](https://leetcode-cn.com/problems/n-queens) 回溯，只需判断上方、左上方和右上方三种情况，注意字符转换等细节即可
 
 [698. 划分为k个相等的子集（中等）](https://leetcode-cn.com/problems/partition-to-k-equal-sum-subsets/)
 

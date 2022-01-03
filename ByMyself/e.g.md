@@ -64,10 +64,10 @@ sb.append("t");
 sb.toString();
 ```
 
-## 链表
+## 列表
 
 ```java
-// ArrayList
+// ArrayList （底层数组）
 List<Integer> alist = new ArrayList<>();
 
 // LinkedList 双向链表

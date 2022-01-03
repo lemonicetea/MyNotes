@@ -1,4 +1,4 @@
-# 做过的动态规划题分类（42题）
+# 做过的动态规划题分类（41题）
 
 ## 1、基本技巧
 
@@ -6,21 +6,19 @@
 
 [322. 零钱兑换（中等）](https://leetcode-cn.com/problems/coin-change) 使用dp table，双重for循环，dp[i] = dp[i - coin] + 1
 
-[300. 最长递增子序列（中等）](https://leetcode-cn.com/problems/longest-increasing-subsequence) Longest Increasing Subsequence 1、使用dp table，双重循环，dp[i] = Math.max(dp[j] + 1, dp[i]) 2、二分查找+patience sorting（耐心排序），最后返回堆数即可
-
 [931. 下降路径最小和（中等）](https://leetcode-cn.com/problems/minimum-falling-path-sum/) memo+递归，注意base case和处理越界
 
-[494. 目标和（中等）](https://leetcode-cn.com/problems/target-sum)
+[494. 目标和（中等）](https://leetcode-cn.com/problems/target-sum) 1、回溯法；2、带有备忘录的dp，key存字符串；3、使用sum[A]-sum[B]=target的公式推导出sum[B]=(sum[nums]-target)/2，从而将问题转化为：nums中可以凑出几个sum[B]子集，此问题就是经典的背包问题。
 
 ## 2、子序列类型问题
 
 [72. 编辑距离（困难）](https://leetcode-cn.com/problems/edit-distance) 1、memo+递归；2、dp table+迭代。注意base case和处理越界
 
-[300. 最长递增子序列（中等）](https://leetcode-cn.com/problems/longest-increasing-subsequence)
-
 [354. 俄罗斯套娃信封问题（困难）](https://leetcode-cn.com/problems/russian-doll-envelopes)
 
-[53. 最大子序和（简单）](https://leetcode-cn.com/problems/maximum-subarray/)
+[300. 最长递增子序列（中等）](https://leetcode-cn.com/problems/longest-increasing-subsequence) Longest Increasing Subsequence 1、使用dp table，双重循环，dp[i] = Math.max(dp[j] + 1, dp[i]) 2、二分查找+patience sorting（耐心排序），最后返回堆数即可
+
+[53. 最大子序和（简单）](https://leetcode-cn.com/problems/maximum-subarray/) 因为数组中可能包含复数，所以不能使用滑动窗口解决。动规dp[i]定义为“以nums[i]结尾的连续子数组最大和”，则dp[i] = Math.max(nums[i], nums[i] + dp[i - 1])
 
 [1143. 最长公共子序列（中等）](https://leetcode-cn.com/problems/longest-common-subsequence)
 
