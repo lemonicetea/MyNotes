@@ -38,9 +38,9 @@
 
 [64. 最小路径和（中等）](https://leetcode-cn.com/problems/minimum-path-sum) base case是第一行和第一列，其余dp[i][j] = Math.min(dp[i-1][j], dp[i][j-1])+nums[i][j]
 
-[174. 地下城游戏（困难）](https://leetcode-cn.com/problems/dungeon-game)
+[174. 地下城游戏（困难）](https://leetcode-cn.com/problems/dungeon-game) 推荐使用带备忘录的递归解法，比较容易理解。memo[i][j]的含义是从dungeon[i][j]到达终点（右下角）所需的最少生命值是dp(dungeon, i, j)，那么就需要判断Math.min(dp(dungeon, i + 1, j), dp(dungeon, i, j + 1)) - dungeon[i][j]是否大于0，如果大于0则沿用当前值，如果小于等于0则说明dungeon[i][j]会补充足够的能量，保持最低生命1即可，最后返回memo[0][0]
 
-[514. 自由之路（困难）](https://leetcode-cn.com/problems/freedom-trail/)
+[514. 自由之路（困难）](https://leetcode-cn.com/problems/freedom-trail/) 带备忘录的递归解法，需要将ring字符串处理成HashMap<Character, ArrayList<Integer>>的表，以方便找到目标字符与当前所在字符所需走过的路径值。dp函数的含义为当圆盘指针指向 ring[i] 时，输入字符串 key[j..] 至少需要 dp(ring, i, key, j) 次操作
 
 [787. K 站中转内最便宜的航班（中等）](https://leetcode-cn.com/problems/cheapest-flights-within-k-stops/)
 
