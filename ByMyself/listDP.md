@@ -4,7 +4,7 @@
 
 [509. 斐波那契数（简单）](https://leetcode-cn.com/problems/fibonacci-number) 1、使用给好的f(n)函数暴力解；2、利用备忘录+递归自顶向下解；3、使用DP table+迭代自底向上解
 
-[322. 零钱兑换（中等）](https://leetcode-cn.com/problems/coin-change) 使用dp table，双重for循环，dp[i] = dp[i - coin] + 1
+[322. 零钱兑换（中等）](https://leetcode-cn.com/problems/coin-change) 使用dp table，双重for循环，dp[i] = Math.min(dp[i], dp[i - coin] + 1)
 
 [931. 下降路径最小和（中等）](https://leetcode-cn.com/problems/minimum-falling-path-sum/) memo+递归，注意base case和处理越界
 
@@ -14,29 +14,29 @@
 
 [72. 编辑距离（困难）](https://leetcode-cn.com/problems/edit-distance) 1、memo+递归；2、dp table+迭代。注意base case和处理越界
 
-[354. 俄罗斯套娃信封问题（困难）](https://leetcode-cn.com/problems/russian-doll-envelopes)
+[354. 俄罗斯套娃信封问题（困难）](https://leetcode-cn.com/problems/russian-doll-envelopes) 将原数组重新排序，按“长”升序排序，长相等的再按“宽”降序排序，将问题转变为选取“宽”的最长递增子序列问题
 
-[300. 最长递增子序列（中等）](https://leetcode-cn.com/problems/longest-increasing-subsequence) Longest Increasing Subsequence 1、使用dp table，双重循环，dp[i] = Math.max(dp[j] + 1, dp[i]) 2、二分查找+patience sorting（耐心排序），最后返回堆数即可
+[300. 最长递增子序列（中等）](https://leetcode-cn.com/problems/longest-increasing-subsequence) LIS（Longest Increasing Subsequence）1、使用dp table，双重循环，转移方程dp[i] = Math.max(dp[j] + 1, dp[i]) 2、二分查找+patience sorting（耐心排序），一个变量记录堆数，一个数组记录每堆对顶元素值用于比大小，最后返回堆数即可
 
 [53. 最大子序和（简单）](https://leetcode-cn.com/problems/maximum-subarray/) 因为数组中可能包含复数，所以不能使用滑动窗口解决。动规dp[i]定义为“以nums[i]结尾的连续子数组最大和”，则dp[i] = Math.max(nums[i], nums[i] + dp[i - 1])
 
-[1143. 最长公共子序列（中等）](https://leetcode-cn.com/problems/longest-common-subsequence)
+[1143. 最长公共子序列（中等）](https://leetcode-cn.com/problems/longest-common-subsequence) LCS（Longest Common Subsequence）1、递归，dp(s1, i, s2, j)计算s1[i..]和s2[j..]的最长公共子序列长度，从后向前；2、迭代，dp[i][j]代表s1[0..i-1]和s2[0..j-1]的最长公共子序列长度，base case为dp[0][..] = dp[..][0] = 0
 
-[583. 两个字符串的删除操作（中等）](https://leetcode-cn.com/problems/delete-operation-for-two-strings/)
+[583. 两个字符串的删除操作（中等）](https://leetcode-cn.com/problems/delete-operation-for-two-strings/) 思路同LCS，res = n + m - 2 * dp[n][m]
 
-[712. 两个字符串的最小ASCII删除和（中等）](https://leetcode-cn.com/problems/minimum-ascii-delete-sum-for-two-strings)
+[712. 两个字符串的最小ASCII删除和（中等）](https://leetcode-cn.com/problems/minimum-ascii-delete-sum-for-two-strings) 思路同LCS，res = sumASCII(s1+s2) - 2 * dp[n][m]，dp中存储公共序列的ASCII和
 
-[516. 最长回文子序列（中等）](https://leetcode-cn.com/problems/longest-palindromic-subsequence)
+[516. 最长回文子序列（中等）](https://leetcode-cn.com/problems/longest-palindromic-subsequence) dp[i][j]表示子串s[i..j]内的最长回文子序列长度，最后返回dp[0][n - 1]即可，因为依赖dp[i+1][j-1]，所以要倒着或斜着填入数据
 
 ## 3、背包类型问题
 
-[416. 分割等和子集（中等）](https://leetcode-cn.com/problems/partition-equal-subset-sum)
+[416. 分割等和子集（中等）](https://leetcode-cn.com/problems/partition-equal-subset-sum) 将问题转化为n个物品中是否可以恰好装满sum/2容量的包，1、dp[i][j]代表前i个物品当前容量为j时是否为true，最后返回dp[n][sum/2]，base case 就是dp[..][0] = true和dp[0][..] = false；2、将二维dp压缩成一维，因为只与j相关（压缩还需要多看，理解不透彻）
 
-[518. 零钱兑换II（中等）](https://leetcode-cn.com/problems/coin-change-2)
+[518. 零钱兑换II（中等）](https://leetcode-cn.com/problems/coin-change-2) 1、dp[i][j]代表若只使用coins中的前i个硬币的面值，若想凑出金额j，有dp[i][j]种凑法，最后返回dp[n][amount]即可，注意结果是可能性和，所以装或不装两种情况的结果要相加；2、压缩空间，降维，只与j相关
 
 ## 4、游戏专题
 
-[64. 最小路径和（中等）](https://leetcode-cn.com/problems/minimum-path-sum)
+[64. 最小路径和（中等）](https://leetcode-cn.com/problems/minimum-path-sum) base case是第一行和第一列，其余dp[i][j] = Math.min(dp[i-1][j], dp[i][j-1])+nums[i][j]
 
 [174. 地下城游戏（困难）](https://leetcode-cn.com/problems/dungeon-game)
 

@@ -1,0 +1,74 @@
+{
+    "root": {
+        "data": {
+            "id": "cgxlecknty80",
+            "created": 1641370827495,
+            "text": "DDIA"
+        },
+        "children": [
+            {
+                "data": {
+                    "id": "cgxlexdnae80",
+                    "created": 1641370872783,
+                    "text": "关于数据系统的思考"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "cgxlf3umi600",
+                            "created": 1641370886870,
+                            "text": "可靠性",
+                            "note": "人们对于一个东西是否可靠，都有一个直观的想法。人们对可靠软件的典型期望包括：\n- 应用程序表现出用户所期望的功能。\n- 允许用户犯错，允许用户以出乎意料的方式使用软件。\n- 在预期的负载和数据量下，性能满足要求。\n- 系统能防止未经授权的访问和滥用。\n造成错误的原因叫做故障（fault）不同于失效（failure），故障的概率不可能降到零，因此最好设计容错机制以防因故障而导致失效。"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "cgxlfl3sbww0",
+                                    "created": 1641370924430,
+                                    "text": "硬件故障（hardware faults）",
+                                    "note": "通常认为硬件故障是随机的、相互独立的。\n一般是增加冗余来提高可用性，但是相应的硬件故障率也会提高，要根据系统优先考虑因素决定。\n在冗余的基础上进一步引入软件容错机制会更好。"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "cgxljfhrkuw0",
+                                    "created": 1641371225671,
+                                    "text": "软件错误"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "cgyd5axd0yo0",
+                                    "created": 1641449109709,
+                                    "text": "人为错误"
+                                },
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "cgxlf61ly2g0",
+                            "created": 1641370891646,
+                            "text": "可伸缩性"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "cgxlf9qfw5c0",
+                            "created": 1641370899678,
+                            "text": "可维护性"
+                        },
+                        "children": []
+                    }
+                ]
+            }
+        ]
+    },
+    "template": "default",
+    "theme": "fresh-blue",
+    "version": "1.4.43"
+}
