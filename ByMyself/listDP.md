@@ -44,9 +44,9 @@
 
 [787. K 站中转内最便宜的航班（中等）](https://leetcode-cn.com/problems/cheapest-flights-within-k-stops/)
 
-[10. 正则表达式匹配（困难）](https://leetcode-cn.com/problems/regular-expression-matching/)
+[10. 正则表达式匹配（困难）](https://leetcode-cn.com/problems/regular-expression-matching/) 用dp(s,i,p,j)表示s[i..]是否可以匹配p[j..]然后递归得到答案，转移方程分为：1.1 通配符匹配 0 次或多次res = dp(s, i + 1, p, j) || dp(s, i, p, j + 2)；1.2 常规匹配 1 次res = dp(s, i + 1, p, j + 1)；2.1 通配符匹配 0 次res = dp(s, i, p, j + 2)；2.2 如果没有*通配符，也无法匹配，那只能说明匹配失败。base case分别处理i == sl和就== pl的情况。使用HashMap<String, Boolean> memo来记录已经计算过的内容。
 
-[887. 鸡蛋掉落（困难）](https://leetcode-cn.com/problems/super-egg-drop/)
+[887. 鸡蛋掉落（困难）](https://leetcode-cn.com/problems/super-egg-drop/) 有以下解法：1、易于理解，部分用例会超时。dp(k, n)表示k个鸡蛋n层楼尝试的最少次数，转移方程为res = Math.min(res, 1 + Math.max(dp(k - 1, i - 1), dp(k, n - i)))，取max是为了考虑最坏情况，base case为k = 1返回n，n = 0返回0，哈希备忘录memo(k+n, res)；2、将1中for循环的部分改为二分搜索，转化为求山谷问题；3、转变思路，用dp[K][m] = n来表示给你 K 个鸡蛋，测试 m 次，最坏情况下最多能测试 n 层楼，最后找到题目要求的n对应的m即可，转移方程为dp[k][m] = dp[k][m - 1] + dp[k - 1][m - 1] + 1；4、将3中m循环改为二分（没做出来）
 
 [312. 戳气球（困难）](https://leetcode-cn.com/problems/burst-balloons)
 
@@ -54,23 +54,23 @@
 
 [651. 四键键盘（中等）](https://leetcode-cn.com/problems/4-keys-keyboard)
 
-[121. 买卖股票的最佳时机（简单）](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/)
+[121. 买卖股票的最佳时机（简单）](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/) 套模板，k = 1，不需要加上前一次的利润
 
-[122. 买卖股票的最佳时机 II（简单）](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/)
+[122. 买卖股票的最佳时机 II（中等）](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/) 套模板，k无限制，需要加上前一次的利润
 
-[123. 买卖股票的最佳时机 III（困难）](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iii/)
+[123. 买卖股票的最佳时机 III（困难）](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iii/) 套模板，k = 2，因为情况较少，所以可以直接穷举，一种是k=1（状态转移方程2个，不需要加上前一次的利润），一种是k=2（状态方程2个，需要加上前一次的利润）
 
-[188. 买卖股票的最佳时机 IV（困难）](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iv/)
+[188. 买卖股票的最佳时机 IV（困难）](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iv/) 套模板，k有比较大的上限，需要三维dp table，最复杂的一种情况，套模板写全细节，最后返回dp[n - 1][max_k][0]即可，但是效率会很低
 
-[309. 最佳买卖股票时机含冷冻期（中等）](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/)
+[309. 最佳买卖股票时机含冷冻期（中等）](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/) 套模板，k无限制，有冻结期，需要加上前一次的利润，时间由i - 1变为i - (冻结期 + 1)
 
-[714. 买卖股票的最佳时机含手续费（中等）](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/)
+[714. 买卖股票的最佳时机含手续费（中等）](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/) 套模板，k无限制，有手续费，需要加上前一次的利润，购买股票时除了减去prices[i]还要减去fee
 
-[198. 打家劫舍（简单）](https://leetcode-cn.com/problems/house-robber)
+[198. 打家劫舍（简单）](https://leetcode-cn.com/problems/house-robber) 倒序，dp[i] = Math.max(dp[i + 1], dp[i + 2] + nums[i])
 
-[213. 打家劫舍II（中等）](https://leetcode-cn.com/problems/house-robber-ii)
+[213. 打家劫舍II（中等）](https://leetcode-cn.com/problems/house-robber-ii) 写一个辅助函数dp(int[] nums, int start, int end)，求Math.max(dp(nums, 0, n - 2), dp(nums, 1, n - 1))即可
 
-[337. 打家劫舍III（中等）](https://leetcode-cn.com/problems/house-robber-iii)
+[337. 打家劫舍III（中等）](https://leetcode-cn.com/problems/house-robber-iii) 写一个辅助函数dp(TreeNode root)，返回结果为int[]{not_rob, rob}，该节点偷则为root.val + left[0] + right[0]，不偷则为Math.max(left[0], left[1]) + Math.max(right[0], right[1])
 
 [28. 实现 strStr(简单)](https://leetcode-cn.com/problems/implement-strstr)
 
