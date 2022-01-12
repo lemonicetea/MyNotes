@@ -48,11 +48,11 @@
 
 [887. 鸡蛋掉落（困难）](https://leetcode-cn.com/problems/super-egg-drop/) 有以下解法：1、易于理解，部分用例会超时。dp(k, n)表示k个鸡蛋n层楼尝试的最少次数，转移方程为res = Math.min(res, 1 + Math.max(dp(k - 1, i - 1), dp(k, n - i)))，取max是为了考虑最坏情况，base case为k = 1返回n，n = 0返回0，哈希备忘录memo(k+n, res)；2、将1中for循环的部分改为二分搜索，转化为求山谷问题；3、转变思路，用dp[K][m] = n来表示给你 K 个鸡蛋，测试 m 次，最坏情况下最多能测试 n 层楼，最后找到题目要求的n对应的m即可，转移方程为dp[k][m] = dp[k][m - 1] + dp[k - 1][m - 1] + 1；4、将3中m循环改为二分（没做出来）
 
-[312. 戳气球（困难）](https://leetcode-cn.com/problems/burst-balloons)
+[312. 戳气球（困难）](https://leetcode-cn.com/problems/burst-balloons) 构造points[n+2]，一头一尾存1，转移方程dp[i][j] = Math.max(dp[i][j], dp[i][k] + dp[k][j] + points[i] * points[k] * points[j]) dp取开区间i到j内可得到的最大数，所以最终返回dp[0][n + 1]即可，base case为所有i=j时，dp取值为0。注意确定base case和最终要得到的状态后，画出dp矩阵，即可推出遍历方向。
 
-[877. 石子游戏（中等）](https://leetcode-cn.com/problems/stone-game)
+[877. 石子游戏（中等）](https://leetcode-cn.com/problems/stone-game) 1、先手必胜，一定返回true；2、follow up 堆数和总数都是任意正整数，用dp[i][j]存储piles[i...j]这部分石头堆先后手各能获得的最高分数
 
-[651. 四键键盘（中等）](https://leetcode-cn.com/problems/4-keys-keyboard)
+[651. 四键键盘（中等） Plus会员](https://leetcode-cn.com/problems/4-keys-keyboard) 1、定义dp(n, a_num, copy)函数，用n表示剩余的按键次数，用a_num表示当前屏幕上A的数量，用copy表示当前剪切板中A的数量，每次对# A、# C-V、# C-A C-C这三种状态取最大，直到n减为0，用备忘录减少子集；2、定义dp[n + 1]，用dp[i]表示i次操作后最多能显示多少个A，转移方程dp[i]=Math.max(dp[i], dp[j-2]*(i-j+1))，j之前经历了C-A和C-C，j到i之间全部C-V
 
 [121. 买卖股票的最佳时机（简单）](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/) 套模板，k = 1，不需要加上前一次的利润
 
@@ -72,22 +72,24 @@
 
 [337. 打家劫舍III（中等）](https://leetcode-cn.com/problems/house-robber-iii) 写一个辅助函数dp(TreeNode root)，返回结果为int[]{not_rob, rob}，该节点偷则为root.val + left[0] + right[0]，不偷则为Math.max(left[0], left[1]) + Math.max(right[0], right[1])
 
-[28. 实现 strStr(简单)](https://leetcode-cn.com/problems/implement-strstr)
+[28. 实现 strStr(简单)](https://leetcode-cn.com/problems/implement-strstr) 扩展 KMP算法（Knuth-Morris-Pratt 算法）
 
-[1312. 让字符串成为回文串的最少插入次数（困难）](https://leetcode-cn.com/problems/minimum-insertion-steps-to-make-a-string-palindrome)
+[1312. 让字符串成为回文串的最少插入次数（困难）](https://leetcode-cn.com/problems/minimum-insertion-steps-to-make-a-string-palindrome) dp[n][n]，i==j时为0（base case） 双重for循环倒序遍历dp数组，s[i] == s[j]时dp[i][j] = dp[i+1][j-1]，不等时dp[i][j] = min(dp[i+1][j], dp[i][j-1]) + 1
 
 ## 5、贪心类型问题
 
-[435. 无重叠区间（中等）](https://leetcode-cn.com/problems/non-overlapping-intervals/)
+[435. 无重叠区间（中等）](https://leetcode-cn.com/problems/non-overlapping-intervals/) 将数组按区间end时间升序排序，找到下一个start >= x_end的区间，count++，更新end，直到遍历完整个数组
 
-[452. 用最少数量的箭引爆气球（中等）](https://leetcode-cn.com/problems/minimum-number-of-arrows-to-burst-balloons)
+[452. 用最少数量的箭引爆气球（中等）](https://leetcode-cn.com/problems/minimum-number-of-arrows-to-burst-balloons) 思路同上一题，将>=改为>即可
 
-[253.会议室 II（中等）](https://leetcode.com/problems/meeting-rooms-ii/)
+[252.会议室（简单） Plus会员](https://leetcode-cn.com/problems/meeting-rooms/) 同II
 
-[1024. 视频拼接（中等）](https://leetcode-cn.com/problems/video-stitching)
+[253.会议室 II（中等） Plus会员](https://leetcode.com/problems/meeting-rooms-ii/) 将所有区间的开始和结束时间分别投影到int[] begin和int[] end数组中，分别对begin和end进行升序排序，用一个变量count记录扫描过程中的得到的所需会议室的总值，i和j作为双指针分别扫描begin和end，若begin[i] < end[j]说明扫描到一个开始点，count++，i++，否则count--，j++，然后判断res = Math.max(res, count)，最终返回res
 
-[55. 跳跃游戏（中等）](https://leetcode-cn.com/problems/jump-game)
+[1024. 视频拼接（中等）](https://leetcode-cn.com/problems/video-stitching) 将clips按照起点升序排序，起点相同的按照终点降序排序，定义curEnd和nextEnd两个变量，遍历clips中所有起点<=curEnd的clip，不断刷新nextEnd的值，遍历完后将nextEnd的值赋给curEnd，同时res++，若curEnd已经>=目标T，则可以给出答案，否则继续遍历clips直到结束，返回-1
 
-[45. 跳跃游戏 II（中等）](https://leetcode-cn.com/problems/jump-game-ii)
+[55. 跳跃游戏（中等）](https://leetcode-cn.com/problems/jump-game) 判断是否能到终点。用一个变量farthest记录能到达的最远index，for循环不断计算能跳到的最远距离farthest = max(farthest, i + nums[i])，如果遇到farthest <= i则说明无法前进了，直接返回false，最后判断farthest >= n - 1即可
 
-[134. 加油站（中等）](https://leetcode-cn.com/problems/gas-station/)
+[45. 跳跃游戏 II（中等）](https://leetcode-cn.com/problems/jump-game-ii) 判断到达终点的最少跳跃次数。用一个变量jumps记录需要跳跃的最少次数，end记录当前到达的index，farthest记录当前可到达的最远index，farthest = max(nums[i] + i, farthest)，如果end恰好是当前循环到的i，说明可以进行下一次跳跃了，jumps++，end更新为farthest，循环结束后返回jumps即可
+
+[134. 加油站（中等）](https://leetcode-cn.com/problems/gas-station/) 1、图像解法。sum += gas[i] - cost[i]计算走完所有节点后剩余的油量，每次都比较一下sum和minSum，若小于，start = i + 1，minsum更新为sum。最后如果sum<0，说明总油量小于总消耗，-1。最后返回start == n ? 0 : start，处理一下环的情况；2、贪心解法。依然计算sum，小于0返回-1。用一个变量tank记录当前油箱里的油量，tank += gas[i] - cost[i]，如果tank<0，说明无法从start走到i，将start更新为i+1，tank更新为0，继续循环。最后判断start == n ? 0 : start

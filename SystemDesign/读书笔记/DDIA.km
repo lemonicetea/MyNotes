@@ -52,9 +52,19 @@
                         "data": {
                             "id": "cgxlf61ly2g0",
                             "created": 1641370891646,
-                            "text": "可伸缩性"
+                            "text": "可伸缩性/可扩展性(Scalability)",
+                            "note": "用来描述系统应对负载增长能力的术语。"
                         },
-                        "children": []
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "ch1nz7sxzg00",
+                                    "created": 1641784344806,
+                                    "text": "如何描述负载"
+                                },
+                                "children": []
+                            }
+                        ]
                     },
                     {
                         "data": {
