@@ -6,7 +6,7 @@
 
 [51. N皇后（困难）](https://leetcode-cn.com/problems/n-queens) 回溯，只需判断上方、左上方和右上方三种情况，注意字符转换等细节即可
 
-[698. 划分为k个相等的子集（中等）](https://leetcode-cn.com/problems/partition-to-k-equal-sum-subsets/)
+[698. 划分为k个相等的子集（中等）](https://leetcode-cn.com/problems/partition-to-k-equal-sum-subsets/) 以桶为视角进行装载和回溯。首先排除k>nums.length和sum%k!=0的情况，然后由sum/k得到target，构造一个used数组用来记录nums中对应位置的元素有没有被装入桶中，构造回溯函数backtrack(int k, int bucket, int[] nums, int start, boolean[] used, int target)，对于k=0的情况直接返回true，bucket=target的情况可以继续调用backtrack(k - 1, 0, nums, 0, used, target)，从start位置开始遍历nums，对于已被用过或装入后超出target的元素跳过，其他元素装入后如果backtrack(k, bucket, nums, i + 1, used, target)为true的话，可以直接返回true，其他情况将桶里的元素再拿出去。
 
 [78. 子集（中等）](https://leetcode-cn.com/problems/subsets)
 
