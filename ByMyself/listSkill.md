@@ -18,27 +18,27 @@
 
 ## 2、暴力搜索-BFS
 
-[111. 二叉树的最小深度（简单）](https://leetcode-cn.com/problems/minimum-depth-of-binary-tree)
+[111. 二叉树的最小深度（简单）](https://leetcode-cn.com/problems/minimum-depth-of-binary-tree) 类似层序遍历，用一个que存储每一层的节点，双重循环，外层!que.isEmpty()并depth++，内层用一个变量记录que.size，循环0~size，poll出一个节点，将左右子树offer进que
 
-[752. 打开转盘锁（中等）](https://leetcode-cn.com/problems/open-the-lock)
+[752. 打开转盘锁（中等）](https://leetcode-cn.com/problems/open-the-lock) 每一位密码可以向上或向下扭动，有四位密码，所以每一次变动有2*4=8种可能的结果。用一个HashSet记录deadlist，使用双向BFS方法寻找答案，一个HashSet q1从“顶”开始（在题目中即为“000”），一个HashSet q2从“底”开始（在题目中即为目标值target），step初始化为0，双重循环，外循环新建一个HashSet tmp用来暂存当前节点的“下一层”，最后step++，q1=q2，q2=tmp。内循环遍历q1，在deadlist里则continue，在q2里则返回step（双向BFS是判断两个集合是否有交集），循环[0,4)，向上扭动，不在visited里则添加到tmp里，向下扭动，不在visited里则添加到tmp里
 
-[773. 滑动谜题（困难）](https://leetcode-cn.com/problems/sliding-puzzle)
+[773. 滑动谜题（困难）](https://leetcode-cn.com/problems/sliding-puzzle) 将题目中2*3的矩阵转化成一维，用String类型存储，方便比较，再用一个int[][] map记录String[i]可以向那几个位置移动，然后套BFS模板，每到达一个“节点”，调用get方法（写到主方法外面）获取下一层可能的情况List<String>，循环这个list
 
 ## 3、数学运算
 
-[191. 位1的个数（简单）](https://leetcode-cn.com/problems/number-of-1-bits)
+[191. 位1的个数（简单）](https://leetcode-cn.com/problems/number-of-1-bits) 位运算是针对二进制的，&与运算，两个1结果为1，其他都为0（或者说只要有一个是0结果就是0），所以n&(n-1)可以消除n二进制表达里的最后一个1，所以只要对n不断进行该操作并计数，直到n被消除为0为止即可
 
-[231. 2的幂（简单）](https://leetcode-cn.com/problems/power-of-two/)
+[231. 2的幂（简单）](https://leetcode-cn.com/problems/power-of-two/) 一个数如果是2的指数，那么它的二进制表示一定只含有一个1，所以使用n&(n-1)判断即可
 
-[136. 只出现一次的数字（简单）](https://leetcode-cn.com/problems/single-number/)
+[136. 只出现一次的数字（简单）](https://leetcode-cn.com/problems/single-number/) 对于二进制而言，进行异或^操作，相同为0，不同为1。所以对十进制数字而言，两个相同的数异或^结果为0，一个数和0做异或结果还是它自身，两个非零且不同的数做异或结果要按二进制推导。所以对这题而言，只需要用初始化一个=0的res，再循环nums，使res ^= n，最后返回res即可。
 
-[172. 阶乘后的零（简单）](https://leetcode-cn.com/problems/factorial-trailing-zeroes)
+[172. 阶乘后的零（中等）](https://leetcode-cn.com/problems/factorial-trailing-zeroes) 将问题转化为n!最多可以分解出多少个因子5。因为2*5=10会贡献0，因子2的个数又一定比5多，所以统计5的即可。d初始=n，循环res += d/5，d每次/5直到d/5<=0
 
-[793. 阶乘后 K 个零（困难）](https://leetcode-cn.com/problems/preimage-size-of-factorial-zeroes-function)
+[793. 阶乘后 K 个零（困难）](https://leetcode-cn.com/problems/preimage-size-of-factorial-zeroes-function) 搜索有多少个 n 满足f(n) == K，将问题转化为满足条件的 n 最小是多少，最大是多少，一减即可得出答案。使用二分搜索，找到f(n)=k时n的左边界和右边界。
 
-[204. 计数质数（简单）](https://leetcode-cn.com/problems/count-primes)
+[204. 计数质数（中等）](https://leetcode-cn.com/problems/count-primes) 如果一个数如果只能被 1 和它本身整除，那么这个数就是质数（素数）。初始化一个长度为n的数组isPrime将值全部填写为true，然后双重循环，外层从i开始到 i * i < n，i++，如果isPrime[i]为true，循环j=i * i到j < n，j += i，将isPrime[j]置为false，最后返回数组中true的数量即可
 
-[372. 超级次方（中等）](https://leetcode-cn.com/problems/super-pow)
+[372. 超级次方（中等）](https://leetcode-cn.com/problems/super-pow) 
 
 [268. 丢失的数字（简单）](https://leetcode-cn.com/problems/missing-number/)
 
@@ -48,11 +48,11 @@
 
 [398. 随机数索引（中等）](https://leetcode-cn.com/problems/random-pick-index)
 
-[292. Nim游戏（简单）](https://leetcode-cn.com/problems/nim-game)
+[292. Nim游戏（简单）](https://leetcode-cn.com/problems/nim-game) 如果对手拿的时候只剩 4 颗石子，那么无论他怎么拿，总会剩下 1~3 颗石子，就能赢。所以只要初始数量不是4的倍数（你就可以拿1~3颗给对手留下4的倍数），你就能赢。所以return n % 4 != 0;即可
 
-[877. 石子游戏（中等）](https://leetcode-cn.com/problems/stone-game)
+[877. 石子游戏（中等）](https://leetcode-cn.com/problems/stone-game) 题目有两个条件很重要：1、石头总共有偶数堆，2、石头的总数是奇数。作为第一个拿石头的人，你可以控制自己拿到所有偶数堆，或者所有的奇数堆。你可以在第一步就观察好，奇数堆的石头总数多，还是偶数堆的石头总数多，然后步步为营，就一切尽在掌控之中了。所以先手必赢，直接return true即可
 
-[319. 灯泡开关（中等）](https://leetcode-cn.com/problems/bulb-switcher)
+[319. 灯泡开关（中等）](https://leetcode-cn.com/problems/bulb-switcher) 假设现在总共有 16 盏灯，我们求 16 的平方根，等于 4，这就说明最后会有 4 盏灯亮着，它们分别是第 1*1=1 盏、第 2*2=4 盏、第 3*3=9 盏和第 4*4=16 盏。return (int)Math.sqrt(n);即可
 
 ## 4、其他技巧
 
