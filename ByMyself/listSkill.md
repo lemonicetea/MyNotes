@@ -76,24 +76,24 @@
 
 [43. 字符串相乘（中等）](https://leetcode-cn.com/problems/multiply-strings) 模拟数学的两数相乘过程，nums1的长度为n，nums2的长度为m，创建一个int[n+m]的数组res用于存储结果，倒叙遍历两个string，对两边的char转型并相乘（char可以使用 - '0'来转型），然后将结果存入res的i+j和i+j+1两个位置，注意需要累加该位置上本来存放的值。然后找到res中第一个非零的位置，从该位置开始将其转为string。需要注意处理异常场景，两个string中只要有一个"0"，结果就需要返回"0"
 
-[224. 基本计算器（困难）](https://leetcode-cn.com/problems/basic-calculator) 
+[224. 基本计算器（困难）](https://leetcode-cn.com/problems/basic-calculator) 使用一个全局变量index记录当前循环到的位置，构造辅助函数用递归解决括号问题，递归函数里用一个栈存储数，用一个sign记录当前符号，一个num记录遇到下一个符号前的数字，然后循环，取当前位置的字符ch后index++，使用Character.isDigit(ch)方法判断是否为数字，如果是数字，num进一位并加上ch；如果是左括号，送入递归；如果不是数字且不是空格，或已经到最后一位（因前面index++了，所以此处要判断index == s.length()），用switch..case..捕捉符号情况并将num塞入栈，然后将num重新置为0，sign=ch；如果是右括号，则break跳出循环。出循环后将栈中的数字全部相加并返回结果。
 
-[227. 基本计算器II（中等）](https://leetcode-cn.com/problems/basic-calculator-ii)
+[227. 基本计算器II（中等）](https://leetcode-cn.com/problems/basic-calculator-ii) 在上一题的基础上多了*和/，只需要在switch..case..中加入 * 和 / 的情况，其他部分不变即可。注意 * 和 / 时需要将栈顶元素去出，和当前数字做相应计算后再放入栈中。
 
-[772. 基本计算器III（困难）](https://leetcode-cn.com/problems/basic-calculator-iii)
+[772. 基本计算器III（困难） Plus会员](https://leetcode-cn.com/problems/basic-calculator-iii)
 
 [42. 接雨水（困难）](https://leetcode-cn.com/problems/trapping-rain-water) 方法一：用两个备忘录分别记录i位置左侧最高和右侧最高，然后循环数组res += Math.min(l_max[i], r_max[i]) - height[i]，最后返回res。方法二：双指针left和right一头一尾，再用两个变量分别记录[0, l_max]和[r_max, n - 1]范围内的最高峰，当left < right时，l_max = Math.max(l_max, height[left])，r_max = Math.max(r_max, height[right])。如果l_max < r_max，更新res，left++；否则更新res，right--
 
 [11. 盛最多水的容器（中等）](https://leetcode-cn.com/problems/container-with-most-water/) 双指针left和right一头一尾，循环，curArea = Math.min(height[left], height[right]) * (right - left)，res = Math.max(res, curArea)，移动左右指针高度较小的那一个
 
-[20. 有效的括号（简单）](https://leetcode-cn.com/problems/valid-parentheses)
+[20. 有效的括号（简单）](https://leetcode-cn.com/problems/valid-parentheses) 用一个栈记录，循环字符串中的字符，遇到左则压入栈，遇到右且栈不为空时，取栈顶元素与当前char对比是否为一对，是则将栈顶元素pop出来，不是则返回false，循环结束后判断栈是否空了，返回结果
 
-[921. 使括号有效的最小添加（中等）](https://leetcode-cn.com/problems/minimum-add-to-make-parentheses-valid)
+[921. 使括号有效的最小添加（中等）](https://leetcode-cn.com/problems/minimum-add-to-make-parentheses-valid) 用need和res两个变量分别存储需要的右括号数量和需要的操作次数，循环字符串中的字符，遇到左括号，则need++；遇到右括号则need--，并且判断need == -1，说明此时右括号比左括号多，需要添加一个左括号，所以res++，need重新置为0。最后返回need+res
 
-[1541. 平衡括号串的最少插入（中等）](https://leetcode-cn.com/problems/minimum-insertions-to-balance-a-parentheses-string)
+[1541. 平衡括号串的最少插入（中等）](https://leetcode-cn.com/problems/minimum-insertions-to-balance-a-parentheses-string) 每个左括号要匹配两个右括号。用need和res两个变量分别存储需要的右括号数量和需要的操作次数，循环字符串中的字符，遇到左括号，则need+2，并且判断need%2是否余数为1，若是则说明右括号的数量不够，需要插入一个右括号res++，need--；如果遇到右括号则need--，并且判断need == -1，说明需要插入一个左括号res++，同时将need置为1。最后返回need+res
 
-[391. 完美矩形（困难）](https://leetcode-cn.com/problems/perfect-rectangle/)
+[391. 完美矩形（困难）](https://leetcode-cn.com/problems/perfect-rectangle/) 核心思想是判断面积和四角。1、每个小矩阵的面积和要等于最后大矩阵的面积；2、大矩阵内部的每个内部角出现次数应该为偶数，所以用一个Set记录，没有出现则add，出现过了则remove，最后一定留下四个，且这四个应为最后大矩阵的四个外部角。思路不难，但是注意对set的处理，一开始使用了HashSet<int[]>的结构，但是不知道为什么总报错，后来使用了HashSet<String>的结构，将顶点的坐标处理成字符串x + "," + y存入则没有问题，不知道是不是底层什么缘故
 
 [855. 考场就座（中等）](https://leetcode-cn.com/problems/exam-room)
 
-[392. 判断子序列（简单）](https://leetcode-cn.com/problems/is-subsequence)
+[392. 判断子序列（简单）](https://leetcode-cn.com/problems/is-subsequence) 方法一：双指针，i和j分别在字符串s和t上滑动，j++，s[i]==t[j]则i++，最后判断i==s.length()。方法二：适用于该问题的follow up。用一个ArrayList<Integer>[] 类型的数组index存储t中各个字符所在索引，用一个变量j在t上滑动，遍历s，若当前遍历到的字符c不在index中，即index[c] == null，则返回false，否则调用辅助函数二分查找大于j的最小值，该最小值若超过了index[c]的范围则说明没有满足匹配条件的字符，返回false，否则将j更新为index[c].get(left) + 1
