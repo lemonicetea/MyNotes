@@ -94,6 +94,6 @@
 
 [391. 完美矩形（困难）](https://leetcode-cn.com/problems/perfect-rectangle/) 核心思想是判断面积和四角。1、每个小矩阵的面积和要等于最后大矩阵的面积；2、大矩阵内部的每个内部角出现次数应该为偶数，所以用一个Set记录，没有出现则add，出现过了则remove，最后一定留下四个，且这四个应为最后大矩阵的四个外部角。思路不难，但是注意对set的处理，一开始使用了HashSet<int[]>的结构，但是不知道为什么总报错，后来使用了HashSet<String>的结构，将顶点的坐标处理成字符串x + "," + y存入则没有问题，不知道是不是底层什么缘故
 
-[855. 考场就座（中等）](https://leetcode-cn.com/problems/exam-room)
+[855. 考场就座（中等）](https://leetcode-cn.com/problems/exam-room) 思路不复杂，但是要写的内容和要注意的细节特别多。题目给了一个初始化函数ExamRoom，一个分配座位的函数seat，一个离开座位的函数leave。解决思路是，将连续的空座位看做线段，比如p序列的座位上坐了人，用一个HashMap<Integer, int[]>startMap存储以p为左端点的线段，用另一个HashMap<Integer, int[]>endMap存储以p为右端点的线段，用一个TreeSet<int[]>pq存储所有线段，TreeSet是一个有序集合，可以快速查找最值，也可以remove指定元素，满足我们的需求。所以在初始化函数中我们要初始这几个数据结构，注意pq的比较器应该是disA - disB，如果相等b[0] - a[0]将小的序列放在前面，并且插入{-1, N}数组表示一开始全场为空的情况。我们还需要几个辅助函数：addLine函数向pq中add线段line，向startMap中put(line[0], line)，向endMap中put(line[1], line)；removeLine函数从pq中remove线段line，从startMap中remove line[0]，从endMap中remove line[1]；distance函数用于计算线段的长度，因为题目要求多个选择时选择索引最小的那个，所以该函数不能单纯的只计算距离，而是应该计算(y - x) / 2，x == -1时返回y，y == N时返回N - 1 - x。然后就可以写seat和leave函数了。seat函数从pq中取出最长的数组，选取(y - x) / 2 + x作为座位，以此将最长数组一分为二，remove最长的，add左右两段。leave函数则是根据座位p取出左右两段，合二为一，add新数组，remove左右两段
 
 [392. 判断子序列（简单）](https://leetcode-cn.com/problems/is-subsequence) 方法一：双指针，i和j分别在字符串s和t上滑动，j++，s[i]==t[j]则i++，最后判断i==s.length()。方法二：适用于该问题的follow up。用一个ArrayList<Integer>[] 类型的数组index存储t中各个字符所在索引，用一个变量j在t上滑动，遍历s，若当前遍历到的字符c不在index中，即index[c] == null，则返回false，否则调用辅助函数二分查找大于j的最小值，该最小值若超过了index[c]的范围则说明没有满足匹配条件的字符，返回false，否则将j更新为index[c].get(left) + 1

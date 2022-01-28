@@ -130,6 +130,15 @@ LinkedHashSet<Integer> keys = new LinkedHashSet<>();
 keys.iterator().next();
 ```
 
+## TreeSet
+
+```java
+TreeSet<int[]> pq = new TreeSet<>();
+pq.add();
+pq.remove(nums);
+pq.first(); pq.last(); // 分别返回底和顶元素
+```
+
 ## 栈
 
 ```java

@@ -160,11 +160,11 @@
 
 ## 8、图论
 
-[797. 所有可能的路径（中等）](https://leetcode-cn.com/problems/all-paths-from-source-to-target/)
+[797. 所有可能的路径（中等）](https://leetcode-cn.com/problems/all-paths-from-source-to-target/) 从0到n-1的所有可能路径，使用一个List<List<Integer>> res记录所有结果，写一个辅助函数traverse用于递归，添加节点p到路径中，如果p==n-1，则将path加入res中，并移除path末尾元素，返回。否则遍历p的下个节点，递归调用。循环结束移除path末尾元素
 
-[207. 课程表](https://leetcode-cn.com/problems/course-schedule/)
+[207. 课程表](https://leetcode-cn.com/problems/course-schedule/) 首先我们需要一个辅助函数buildGraph将记录前置课程的int[][] prerequisites转化为有向图List<Integer>[] graph，将graph长度初始化为numCourses，对每个位置初始化一个list，然后遍历prerequisites，将p[0]记录为to，p[1]记录为from，graph[from].add(to)。然后我们需要一个辅助函数traverse用来遍历图，创建全局变量boolean hasCycle记录是否存在环，boolean[] visited记录走过的节点，boolean[] onPath记录当前正在遍历的路径，函数中首先判断onPath[s]，true说明有环，然后判断visited[s] || hasCycle，true可以直接返回，然后将visited[s]和onPath[s]分别置为true，遍历graph[s]并递归调用traverse，出循环后将onPath[s]置为false。那么在主函数canFinish中，初始化各变量，遍历0~numCourses-1，调用traverse，最后判断hasCycle
 
-[210. 课程表 II](https://leetcode-cn.com/problems/course-schedule-ii/)
+[210. 课程表 II](https://leetcode-cn.com/problems/course-schedule-ii/) 在上一题的基础上，增加一个List<Integer> postorder用于记录遍历顺序，因为是上课顺序，所以需要改造部分逻辑，将buildGraph函数中图的打印换成graph[to].add(from)。在traverse函数中，使用后序遍历逻辑，在递归完子节点后postorder.add(s)。在主函数中判断环，有环则返回空数组，无环则将postorder从链表转换为数组再返回
 
 [785. 判断二分图（中等）](https://leetcode-cn.com/problems/is-graph-bipartite)
 
