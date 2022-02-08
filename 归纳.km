@@ -1,0 +1,76 @@
+{
+    "root": {
+        "data": {
+            "id": "chqqk6vdpnc0",
+            "created": 1644330629560,
+            "text": "MainTopic"
+        },
+        "children": [
+            {
+                "data": {
+                    "id": "chqqkor51wg0",
+                    "created": 1644330668486,
+                    "text": "二叉树",
+                    "note": "动规、回溯、分治、图论等的思路都可以源于二叉树"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "chqqkri8do00",
+                            "created": 1644330674478,
+                            "text": "前中后序遍历",
+                            "note": "```java\nclass Solution {\n    List<Integer> res = new LinkedList<>();\n    public List<Integer> preorderTraversal(TreeNode root) {\n        traverse(root);\n        return res;\n\t}\n\n    public void traverse(TreeNode root) {\n        if (root == null) {\n            return;\n        }\n        // 前序 res.add(root.val);\n        traverse(root.left);\n        // 中序 res.add(root.val);\n        traverse(root.right);\n        // 后序 res.add(root.val);\n    }\n}\n```"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "chqqmfi4ubs0",
+                            "created": 1644330805079,
+                            "text": "层序遍历",
+                            "note": "```java\nclass Solution {\n    public List<List<Integer>> levelOrder(TreeNode root) {\n        List<List<Integer>> res = new LinkedList<>();\n        if (root == null) {\n            return res;\n        }\n        Queue<TreeNode> que = new LinkedList<>();\n        que.offer(root);\n        while (!que.isEmpty()) {\n            int size = que.size();\n            List<Integer> level = new LinkedList<>();\n            for (int i = 0; i < size; i++) {\n                TreeNode node = que.poll();\n                level.add(node.val);\n                if (node.left != null) {\n                    que.offer(node.left);\n                }\n                if (node.right != null) {\n                    que.offer(node.right);\n                }\n            }\n            res.add(level);\n        }\n        return res;\n    }\n}\n```"
+                        },
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "chqqlmo9bn40",
+                    "created": 1644330742322,
+                    "text": "动态规划",
+                    "note": "分解问题的思路"
+                },
+                "children": []
+            },
+            {
+                "data": {
+                    "id": "chqqlq9xdnk0",
+                    "created": 1644330750163,
+                    "text": "回溯",
+                    "note": "遍历的思路"
+                },
+                "children": []
+            },
+            {
+                "data": {
+                    "id": "chqqlueupnk0",
+                    "created": 1644330759168,
+                    "text": "分治"
+                },
+                "children": []
+            },
+            {
+                "data": {
+                    "id": "chqqlyp0sg80",
+                    "created": 1644330768490,
+                    "text": "图论"
+                },
+                "children": []
+            }
+        ]
+    },
+    "template": "default",
+    "theme": "fresh-blue",
+    "version": "1.4.43"
+}

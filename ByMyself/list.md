@@ -166,11 +166,11 @@
 
 [210. 课程表 II](https://leetcode-cn.com/problems/course-schedule-ii/) 在上一题的基础上，增加一个List<Integer> postorder用于记录遍历顺序，因为是上课顺序，所以需要改造部分逻辑，将buildGraph函数中图的打印换成graph[to].add(from)。在traverse函数中，使用后序遍历逻辑，在递归完子节点后postorder.add(s)。在主函数中判断环，有环则返回空数组，无环则将postorder从链表转换为数组再返回
 
-[785. 判断二分图（中等）](https://leetcode-cn.com/problems/is-graph-bipartite)
+[785. 判断二分图（中等）](https://leetcode-cn.com/problems/is-graph-bipartite) 可以用BFS和DFS两种方法做。用一个全局变量res存储结果，一个boolean数组存储visited，一个boolean数组存储colors。在主函数中初始化各全局变量，然后遍历0~n-1，对每个未被visited标记的节点调用traverse/BFS函数，以防存在散落的节点。在traverse函数中，如果!res直接返回，否则标记visited，遍历graph[s]，对每个与s连接的节点v进行判断，如果v没有被visited，将v染色为!colors[s]，并traverse(v)，如果被visited，判断colors[v] == colors[s]，相同则说明无法形成二分图，将res置为false
 
-[886. 可能的二分法（中等）](https://leetcode-cn.com/problems/possible-bipartition)
+[886. 可能的二分法（中等）](https://leetcode-cn.com/problems/possible-bipartition) 在上一题的基础上增加一个构建无向图的辅助函数buildGraph即可，其他一样。注意graph的两种构建方式，一种是邻接表，一种是邻接矩阵，我们这里使用邻接表，用数据结构List<Integer>[]存储
 
-[323. 无向图中的连通分量数目（中等）](https://leetcode-cn.com/problems/number-of-connected-components-in-an-undirected-graph/)
+[323. 无向图中的连通分量数目（中等）PLUS会员](https://leetcode-cn.com/problems/number-of-connected-components-in-an-undirected-graph/) 动态连通性问题，使用Union-Find算法。
 
 [130. 被围绕的区域（中等）](https://leetcode-cn.com/problems/surrounded-regions/)
 
