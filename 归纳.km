@@ -3,9 +3,182 @@
         "data": {
             "id": "chqqk6vdpnc0",
             "created": 1644330629560,
-            "text": "MainTopic"
+            "text": "MainTopic",
+            "note": "数组遍历框架，典型的线性迭代结构：\n```java\nvoid traverse(int[] arr) {\n    for (int i = 0; i < arr.length; i++) {\n        // 迭代访问 arr[i]\n    }\n}\n```\n\n链表遍历框架，兼具迭代和递归结构：\n```java\n/* 基本的单链表节点 */\nclass ListNode {\n    int val;\n    ListNode next;\n}\n\nvoid traverse(ListNode head) {\n    for (ListNode p = head; p != null; p = p.next) {\n        // 迭代访问 p.val\n    }\n}\n\nvoid traverse(ListNode head) {\n    // 递归访问 head.val\n    traverse(head.next)\n}\n```\n\n二叉树遍历框架，典型的非线性递归遍历结构：\n```java\n/* 基本的二叉树节点 */\nclass TreeNode {\n    int val;\n    TreeNode left, right;\n}\n\nvoid traverse(TreeNode root) {\n    traverse(root.left)\n    traverse(root.right)\n}\n```\n\n二叉树框架可以扩展为 N 叉树的遍历框架：\n```java\n/* 基本的 N 叉树节点 */\nclass TreeNode {\n    int val;\n    TreeNode[] children;\n}\n\nvoid traverse(TreeNode root) {\n    for (TreeNode child : root.children)\n        traverse(child)\n}\n```\n\nN 叉树的遍历又可以扩展为图的遍历，因为图就是好几 N 叉棵树的结合体。"
         },
         "children": [
+            {
+                "data": {
+                    "id": "chqqlmo9bn40",
+                    "created": 1644330742322,
+                    "text": "动态规划",
+                    "note": "分解问题的思路"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "chsurik8kwo0",
+                            "created": 1644545607910,
+                            "text": "子序列问题"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "chsurmzfgdk0",
+                                    "created": 1644545617536,
+                                    "text": "一维DP数组",
+                                    "note": "例如最长递增子序列问题，dp数组的定义是：在子数组array[0..i]中，以array[i]结尾的目标子序列（最长递增子序列）的长度是dp[i]。\n\n```java\nint n = array.length;\nint[] dp = new int[n];\n\nfor (int i = 1; i < n; i++) {\n    for (int j = 0; j < i; j++) {\n        dp[i] = 最值(dp[i], dp[j] + ...)\n    }\n}\n\n```"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "chsusnvhrfk0",
+                                    "created": 1644545697839,
+                                    "text": "二维DP数组",
+                                    "note": "涉及两个字符串/数组时（比如最长公共子序列），dp数组的定义是：在子数组arr1[0..i]和子数组arr2[0..j]中，我们要求的子序列（最长公共子序列）长度为dp[i][j]。\n\n只涉及一个字符串/数组时（比如最长回文子序列），dp数组的定义是：在子数组array[i..j]中，我们要求的子序列（最长回文子序列）的长度为dp[i][j]。\n\n```java\nint n = arr.length;\nint[][] dp = new dp[n][n];\n\nfor (int i = 0; i < n; i++) {\n    for (int j = 1; j < n; j++) {\n        if (arr[i] == arr[j]) \n            dp[i][j] = dp[i][j] + ...\n        else\n            dp[i][j] = 最值(...)\n    }\n}\n```"
+                                },
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "chsut3awjds0",
+                            "created": 1644545731422,
+                            "text": "背包问题",
+                            "note": "```java\npublic int knapsack(int w, int n, int[] wt, int[] val) {\n    int[][] dp = new int[n + 1][w + 1];\n    for (int i = 1; i <= n; i++) {\n        for (int j = 1; j <= w; j++) {\n            if (j < wt[i - 1]) {\n                dp[i][j] = dp[i - 1][j];\n            } else {\n                dp[i][j] = max(dp[i - 1][j - wt[i - 1]] + val[i - 1], dp[i - 1][j]);\n            }\n        }\n    }\n    return dp[n][w];\n}\n```"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "chsuti0iu8w0",
+                            "created": 1644545763446,
+                            "text": "股票问题",
+                            "note": "有三个状态需要记录：1、n为天数；2、k为可交易的最大次数(注意理解这里的含义，是最大次数，实际可以没有使用这么多次数，table里只是存了穷举所有结果中的最大值）；3、0和1分别表示那一天是否持有股票\n\n```java\n// dp table初始化\ndp[n][max_k + 1][0 or 1]\n// 伪代码模板\nfor 0 <= i < n:\n    for 1 <= k <= max_k:\n        for s in {0, 1}:\n            dp[i][k][s] = max(buy, sell, rest)\n            // 0的情况\n            dp[i][k][0] = max(dp[i-1][k][0], dp[i-1][k][1] + prices[i])\n            // 1的情况\n            dp[i][k][1] = max(dp[i-1][k][1], dp[i-1][k-1][0] - prices[i])\n// 实际模板\n// base case：\ndp[-1][...][0] = dp[...][0][0] = 0\ndp[-1][...][1] = dp[...][0][1] = -infinity /* 不可能持有股票，设置一个最小值使该结果不可能被取用到 */\n// 状态转移方程：\ndp[i][k][0] = max(dp[i-1][k][0], dp[i-1][k][1] + prices[i])\ndp[i][k][1] = max(dp[i-1][k][1], dp[i-1][k-1][0] - prices[i])\n```\n\n根据该模板做变形满足题意即可，比如对于k = 1或无交易次数限制的题目，可以把k省去，table变为二维的，又因为i只与前一天的状态有关，可以进一步压缩成O(1)级别的空间；再比如有冻结期或手续费，只要转移方程中稍加变化即可。\n\n```java\n// k = +infinity 空间压缩版\npublic int maxProfit(int[] prices) {\n    int n = prices.length;\n    int dp_i_0 = 0, dp_i_1 = - prices[0];\n    for (int i = 1; i < n; i++) {\n        int temp = dp_i_0;\n        dp_i_0 = Math.max(dp_i_0, dp_i_1 + prices[i]);\n        dp_i_1 = Math.max(dp_i_1, temp - prices[i]);\n    }\n    return dp_i_0;\n}\n```"
+                        },
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "chqqlq9xdnk0",
+                    "created": 1644330750163,
+                    "text": "回溯",
+                    "note": "遍历的思路"
+                },
+                "children": []
+            },
+            {
+                "data": {
+                    "id": "chqqlueupnk0",
+                    "created": 1644330759168,
+                    "text": "分治"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "chsw16pfq9s0",
+                            "created": 1644549186854,
+                            "text": "归并排序",
+                            "note": "```java\nvoid sort(int[] nums, int lo, int hi) {\n    int mid = (lo + hi) / 2;\n    /****** 分 ******/\n    // 对数组的两部分分别排序\n    sort(nums, lo, mid);\n    sort(nums, mid + 1, hi);\n    /****** 治 ******/\n    // 合并两个排好序的子数组\n    merge(nums, lo, mid, hi);\n}\n```"
+                        },
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "chsuqxqhdj40",
+                    "created": 1644545562575,
+                    "text": "数组"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "chsuzc607zs0",
+                            "created": 1644546220902,
+                            "text": "前缀和数组",
+                            "note": "前缀和主要适用的场景是原始数组不会被修改的情况下，频繁查询或计算某个区间的累加和。\n\n```java\nclass PrefixSum {\n    // 前缀和数组\n    private int[] prefix;\n\n    /* 输入一个数组，构造前缀和 */\n    public PrefixSum(int[] nums) {\n        prefix = new int[nums.length + 1];\n        // 计算 nums 的累加和\n        for (int i = 1; i < prefix.length; i++) {\n            prefix[i] = prefix[i - 1] + nums[i - 1];\n        }\n    }\n\n    /* 查询闭区间 [i, j] 的累加和 */\n    public int query(int i, int j) {\n        return prefix[j + 1] - prefix[i];\n    }\n}\n```"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "chsv54nk5m00",
+                            "created": 1644546674734,
+                            "text": "差分数组",
+                            "note": "差分数组的主要适用场景是频繁对原始数组的某个区间的元素进行增减。\n\n```java\n// 差分数组工具类\nclass Difference {\n    // 差分数组\n    private int[] diff;\n\n    /* 输入一个初始数组，区间操作将在这个数组上进行 */\n    public Difference(int[] nums) {\n        assert nums.length > 0;\n        diff = new int[nums.length];\n        // 根据初始数组构造差分数组\n        diff[0] = nums[0];\n        for (int i = 1; i < nums.length; i++) {\n            diff[i] = nums[i] - nums[i - 1];\n        }\n    }\n\n    /* 给闭区间 [i,j] 增加 val（可以是负数）*/\n    public void increment(int i, int j, int val) {\n        diff[i] += val;\n        if (j + 1 < diff.length) {\n            diff[j + 1] -= val;\n        }\n    }\n\n    /* 返回结果数组 */\n    public int[] result() {\n        int[] res = new int[diff.length];\n        // 根据差分数组构造结果数组\n        res[0] = diff[0];\n        for (int i = 1; i < diff.length; i++) {\n            res[i] = res[i - 1] + diff[i];\n        }\n        return res;\n    }\n}\n```"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "chsv5t3tb400",
+                            "created": 1644546727960,
+                            "text": "滑动窗口",
+                            "note": "```java\n/* 滑动窗口算法框架 */\nvoid slidingWindow(string s, string t) {\n    unordered_map<char, int> need, window;\n    for (char c : t) need[c]++;\n\n    int left = 0, right = 0;\n    int valid = 0; \n    while (right < s.size()) {\n        // c 是将移入窗口的字符\n        char c = s[right];\n        // 右移窗口\n        right++;\n        // 进行窗口内数据的一系列更新\n        ...\n\n        /*** debug 输出的位置 ***/\n        printf(\"window: [%d, %d)\\n\", left, right);\n        /********************/\n\n        // 判断左侧窗口是否要收缩\n        while (window needs shrink) {\n            // d 是将移出窗口的字符\n            char d = s[left];\n            // 左移窗口\n            left++;\n            // 进行窗口内数据的一系列更新\n            ...\n        }\n    }\n}\n```\n\n例如最小覆盖子串\n\n```java\nclass Solution {\n    public String minWindow(String s, String t) {\n        char[] news = s.toCharArray();\n        char[] newt = t.toCharArray();\n        HashMap<Character, Integer> need = new HashMap<>();\n        HashMap<Character, Integer> window = new HashMap<>();\n        for (char a : newt) {\n            need.put(a, need.getOrDefault(a, 0) + 1);\n        }\n        int left = 0, right = 0, valid = 0;\n        int start = 0, len = Integer.MAX_VALUE;\n        while (right < news.length) {\n            char i = news[right];\n            right++;\n            if (need.containsKey(i)) {\n                window.put(i, window.getOrDefault(i, 0) + 1);\n                if (window.get(i).equals(need.get(i))) {\n                    valid++;\n                }\n            }\n            while (valid == need.size()) {\n                if (right - left < len) {\n                    start = left;\n                    len = right - left;\n                }\n                char j = news[left];\n                left++;\n                if (need.containsKey(j)) {\n                    if (window.get(j).equals(need.get(j))) {\n                        valid--;\n                    }\n                    window.put(j, window.get(j) - 1);\n                }\n            }\n        }\n        return len == Integer.MAX_VALUE ? \"\" : s.substring(start, start + len);\n    }\n}\n```"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "chsuz9rcf4o0",
+                            "created": 1644546215662,
+                            "text": "二分查找",
+                            "note": "简单二分查找的框架\n\n```java\nint binarySearch(int[] nums, int target) {\n    int left = 0, right = ...;\n\n    while(...) {\n        int mid = left + (right - left) / 2;\n        if (nums[mid] == target) {\n            ...\n        } else if (nums[mid] < target) {\n            left = ...\n        } else if (nums[mid] > target) {\n            right = ...\n        }\n    }\n    return ...;\n}\n```\n\n计算 mid 时需要防止溢出，代码中left + (right - left) / 2就和(left + right) / 2的结果相同，但是有效防止了left和right太大直接相加导致溢出。"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "chsv0uon2o00",
+                                    "created": 1644546339575,
+                                    "text": "基础框架",
+                                    "note": "因为我们初始化 right = nums.length - 1\n所以决定了我们的「搜索区间」是 [left, right]\n所以决定了 while (left <= right)\n同时也决定了 left = mid+1 和 right = mid-1\n因为我们只需找到一个 target 的索引即可\n所以当 nums[mid] == target 时可以立即返回\n\n```java\nint binary_search(int[] nums, int target) {\n    int left = 0, right = nums.length - 1; \n    while(left <= right) {\n        int mid = left + (right - left) / 2;\n        if (nums[mid] < target) {\n            left = mid + 1;\n        } else if (nums[mid] > target) {\n            right = mid - 1; \n        } else if(nums[mid] == target) {\n            // 直接返回\n            return mid;\n        }\n    }\n    // 直接返回\n    return -1;\n}\n```",
+                                    "layout_left_offset": {
+                                        "x": -11,
+                                        "y": 0
+                                    }
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "chsv15syzm80",
+                                    "created": 1644546363782,
+                                    "text": "寻找左侧边界",
+                                    "note": "因为我们初始化 right = nums.length\n所以决定了我们的「搜索区间」是 [left, right)\n所以决定了 while (left < right)\n同时也决定了 left = mid + 1 和 right = mid\n因为我们需找到 target 的最左侧索引\n所以当 nums[mid] == target 时不要立即返回\n而要收紧右侧边界以锁定左侧边界\n\n```java\nint left_bound(int[] nums, int target) {\n    int left = 0, right = nums.length - 1;\n    while (left <= right) {\n        int mid = left + (right - left) / 2;\n        if (nums[mid] < target) {\n            left = mid + 1;\n        } else if (nums[mid] > target) {\n            right = mid - 1;\n        } else if (nums[mid] == target) {\n            // 别返回，锁定左侧边界\n            right = mid - 1;\n        }\n    }\n    // 最后要检查 left 越界的情况\n    if (left >= nums.length || nums[left] != target)\n        return -1;\n    return left;\n}\n```"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "chsv17e1alk0",
+                                    "created": 1644546367232,
+                                    "text": "寻找右侧边界",
+                                    "note": "因为我们初始化 right = nums.length\n所以决定了我们的「搜索区间」是 [left, right)\n所以决定了 while (left < right)\n同时也决定了 left = mid + 1 和 right = mid\n因为我们需找到 target 的最右侧索引\n所以当 nums[mid] == target 时不要立即返回\n而要收紧左侧边界以锁定右侧边界\n又因为收紧左侧边界时必须 left = mid + 1\n所以最后无论返回 left 还是 right，必须减一\n\n```java\nint right_bound(int[] nums, int target) {\n    int left = 0, right = nums.length - 1;\n    while (left <= right) {\n        int mid = left + (right - left) / 2;\n        if (nums[mid] < target) {\n            left = mid + 1;\n        } else if (nums[mid] > target) {\n            right = mid - 1;\n        } else if (nums[mid] == target) {\n            // 别返回，锁定右侧边界\n            left = mid + 1;\n        }\n    }\n    // 最后要检查 right 越界的情况\n    if (right < 0 || nums[right] != target)\n        return -1;\n    return right;\n}\n```"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "chsv2qer4s80",
+                                    "created": 1644546486998,
+                                    "text": "解决实际问题",
+                                    "note": "如果发现题目中存在单调关系，就可以尝试使用二分搜索的思路来解决。搞清楚单调性和二分搜索的种类，通过分析和画图，就能够写出最终的代码。\n框架如下：\n\n```java\n// 函数 f 是关于自变量 x 的单调函数\nint f(int x) {\n    // ...\n}\n\n// 主函数，在 f(x) == target 的约束下求 x 的最值\nint solution(int[] nums, int target) {\n    if (nums.length == 0) return -1;\n    // 问自己：自变量 x 的最小值是多少？\n    int left = ...;\n    // 问自己：自变量 x 的最大值是多少？\n    int right = ... + 1;\n\n    while (left < right) {\n        int mid = left + (right - left) / 2;\n        if (f(mid) == target) {\n            // 问自己：题目是求左边界还是右边界？\n            // ...\n        } else if (f(mid) < target) {\n            // 问自己：怎么让 f(x) 大一点？\n            // ...\n        } else if (f(mid) > target) {\n            // 问自己：怎么让 f(x) 小一点？\n            // ...\n        }\n    }\n    return left;\n}\n```",
+                                    "layout_left_offset": {
+                                        "x": 0,
+                                        "y": 15
+                                    }
+                                },
+                                "children": []
+                            }
+                        ]
+                    }
+                ]
+            },
             {
                 "data": {
                     "id": "chqqkor51wg0",
@@ -36,35 +209,10 @@
             },
             {
                 "data": {
-                    "id": "chqqlmo9bn40",
-                    "created": 1644330742322,
-                    "text": "动态规划",
-                    "note": "分解问题的思路"
-                },
-                "children": []
-            },
-            {
-                "data": {
-                    "id": "chqqlq9xdnk0",
-                    "created": 1644330750163,
-                    "text": "回溯",
-                    "note": "遍历的思路"
-                },
-                "children": []
-            },
-            {
-                "data": {
-                    "id": "chqqlueupnk0",
-                    "created": 1644330759168,
-                    "text": "分治"
-                },
-                "children": []
-            },
-            {
-                "data": {
                     "id": "chqqlyp0sg80",
                     "created": 1644330768490,
-                    "text": "图论"
+                    "text": "图论",
+                    "note": "两种表示方法：\n1、邻接表：链表，比较节省空间，但是效率较低；\n2、邻接矩阵：二维数组，判断连通性迅速，但是如果图比较稀疏的话很耗费空间。"
                 },
                 "children": []
             }
