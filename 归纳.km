@@ -91,6 +91,31 @@
             },
             {
                 "data": {
+                    "id": "chwduqjelr40",
+                    "created": 1644904141325,
+                    "text": "数据结构设计"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "chwgcqir6m80",
+                            "created": 1644911194060,
+                            "text": "缓存机制LRU&LFU"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "chwgcza6feo0",
+                            "created": 1644911213132,
+                            "text": "前缀树"
+                        },
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "data": {
                     "id": "chsuqxqhdj40",
                     "created": 1644545562575,
                     "text": "数组"
