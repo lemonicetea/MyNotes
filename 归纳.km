@@ -66,8 +66,8 @@
                 "data": {
                     "id": "chqqlq9xdnk0",
                     "created": 1644330750163,
-                    "text": "回溯",
-                    "note": "遍历的思路"
+                    "text": "回溯（DFS）",
+                    "note": "遍历的思路。解决一个回溯问题，实际上就是一个决策树的遍历过程。\n```java\nresult = []\npublic void backtrack(路径, 选择列表):\n    if 满足结束条件:\n        result.add(路径)\n        return\n\n    for 选择 in 选择列表:\n        path.add 做选择\n        backtrack(路径, 选择列表)\n        path.delete 撤销选择\n```"
                 },
                 "children": []
             },
@@ -108,7 +108,8 @@
                         "data": {
                             "id": "chwgcza6feo0",
                             "created": 1644911213132,
-                            "text": "前缀树"
+                            "text": "前缀树",
+                            "note": "Trie 树又叫字典树、前缀树、单词查找树，主要应用场景是处理字符串前缀相关的操作。N叉树。\n\n```java\n// 若只有26个字母，可以用ASCII的偏移量作为index，用ch - 'a'即可求得\n// 若为ASCII全量字符，可以将children长度初始化为256\nclass TrieNode {\n    private TrieNode[] children;\n    private V val;\n    public TrieNode() {\n        children = new TrieNode[26];\n    }\n    \n    public void insert(String word) {\n        TrieNode node = this;\n        for (int i = 0; i < word.length(); i++) {\n            char c = word.charAt(i);\n            int index = c - 'a';\n            if (node.children[index] == null) {\n                node.children[index] = new TrieNode();\n            }\n            node = node.children[index];\n        }\n        node.val = true;\n    }\n    \n    private TrieNode searchPrefix(String prefix) {\n        TrieNode node = this;\n        for (int i = 0; i < prefix.length(); i++) {\n            char c = prefix.charAt(i);\n            int index = c - 'a';\n            if (node.children[index] == null) {\n                return null;\n            }\n            node = node.children[index];\n        }\n        return node;\n    }\n}\n```"
                         },
                         "children": []
                     }
@@ -206,6 +207,52 @@
             },
             {
                 "data": {
+                    "id": "chxzbzolfi80",
+                    "created": 1645066296685,
+                    "text": "单链表"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "chxzcjp8v2w0",
+                            "created": 1645066340260,
+                            "text": "双指针"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "chxzdfdh4nk0",
+                                    "created": 1645066409205,
+                                    "text": "合并",
+                                    "note": "两个就用双指针，多个就用优先队列。\n注意使用dummy节点。"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "chxzdguiqwo0",
+                                    "created": 1645066412413,
+                                    "text": "寻找节点",
+                                    "note": "一些技巧：\n- 倒数第K个：倒数第k个节点就是正数第n - k个节点，一个指针走k步，第二个指针同步开始从头走，第一个指针走到底时，第二个指针刚好在第n - k节点上；\n- 中点：快慢指针，2倍速到底，1倍速的落在中点；"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "chxzdm1cers0",
+                                    "created": 1645066423709,
+                                    "text": "判断交点、环、环起点等",
+                                    "note": "一些技巧：\n- 判断环：快慢指针，慢指针slow前进一步，快指针fast就前进两步，如果fast最终遇到空指针，说明链表中没有环；如果fast最终和slow相遇，那肯定是fast超过了slow一圈，说明链表中含有环；\n- 判断环起点：相遇时slow走了k步，fast走了2k步。假设相遇点距离环起点为m，则环起点距离head为k - m，从相遇点再走k - m也能到达环起点。所以，只要我们把快慢指针中的任一个重新指向head，然后两个指针同速前进，k - m步后一定会相遇，再次相遇之处就是环的起点了。\n- 判断交点：让p1遍历完链表A之后开始遍历链表B，让p2遍历完链表B之后开始遍历链表A，这样相当于「逻辑上」两条链表接在了一起。双指针p1和p2同时进入公共部分，也就是同时到达相交节点。",
+                                    "priority": null
+                                },
+                                "children": []
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "data": {
                     "id": "chqqkor51wg0",
                     "created": 1644330668486,
                     "text": "二叉树",
@@ -229,6 +276,15 @@
                             "note": "```java\nclass Solution {\n    public List<List<Integer>> levelOrder(TreeNode root) {\n        List<List<Integer>> res = new LinkedList<>();\n        if (root == null) {\n            return res;\n        }\n        Queue<TreeNode> que = new LinkedList<>();\n        que.offer(root);\n        while (!que.isEmpty()) {\n            int size = que.size();\n            List<Integer> level = new LinkedList<>();\n            for (int i = 0; i < size; i++) {\n                TreeNode node = que.poll();\n                level.add(node.val);\n                if (node.left != null) {\n                    que.offer(node.left);\n                }\n                if (node.right != null) {\n                    que.offer(node.right);\n                }\n            }\n            res.add(level);\n        }\n        return res;\n    }\n}\n```"
                         },
                         "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "chxz8vkgr5c0",
+                            "created": 1645066052636,
+                            "text": "BFS",
+                            "note": "```java\nint BFS(Node start, Node target) {\n    Queue<Node> q; // 核心数据结构\n    Set<Node> visited; // 避免走回头路\n\n    q.offer(start); // 将起点加入队列\n    visited.add(start);\n    int step = 0; // 记录扩散的步数\n\n    while (!q.isEmpty()) {\n        int sz = q.size();\n        /* 将当前队列中的所有节点向四周扩散 */\n        for (int i = 0; i < sz; i++) {\n            Node cur = q.poll();\n            /* 划重点：这里判断是否到达终点 */\n            if (cur is target)\n                return step;\n            /* 将 cur 的相邻节点加入队列 */\n            for (Node x : cur.adj())\n                if (x not in visited) {\n                    q.offer(x);\n                    visited.add(x);\n                }\n        }\n        /* 划重点：更新步数在这里 */\n        step++;\n    }\n}\n```"
+                        },
+                        "children": []
                     }
                 ]
             },
@@ -239,7 +295,56 @@
                     "text": "图论",
                     "note": "两种表示方法：\n1、邻接表：链表，比较节省空间，但是效率较低；\n2、邻接矩阵：二维数组，判断连通性迅速，但是如果图比较稀疏的话很耗费空间。"
                 },
-                "children": []
+                "children": [
+                    {
+                        "data": {
+                            "id": "chy4ad50duo0",
+                            "created": 1645080274797,
+                            "text": "拓扑排序"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "chy4agyugfs0",
+                            "created": 1645080283131,
+                            "text": "二分图"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "chy4antzb6g0",
+                            "created": 1645080298075,
+                            "text": "Union-Find算法"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "chy4awcjdwg0",
+                            "created": 1645080316611,
+                            "text": "Kruskal最小生成树"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "chy4b53tgo80",
+                            "created": 1645080335675,
+                            "text": "Prim最小生成树"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "chy4bh30bmw0",
+                            "created": 1645080361747,
+                            "text": "Dijkstra算法"
+                        },
+                        "children": []
+                    }
+                ]
             }
         ]
     },
