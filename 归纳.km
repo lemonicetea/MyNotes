@@ -12,7 +12,7 @@
                     "id": "chqqlmo9bn40",
                     "created": 1644330742322,
                     "text": "动态规划",
-                    "note": "分解问题的思路"
+                    "note": "分解问题的思路，聪明的穷举。\n动态规划问题的一般形式就是求最值。\n具备「最优子结构」，通过子问题的最值得到原问题的最值。\n明确「状态」 -> 定义 dp 数组/函数的含义 -> 明确「选择」-> 明确 base case。\n我们主要有两种解题思路：\n- 带备忘录的递归解法（自顶向下）\n- dp 数组的迭代解法（自底向上）"
                 },
                 "children": [
                     {
@@ -53,10 +53,36 @@
                     },
                     {
                         "data": {
-                            "id": "chsuti0iu8w0",
-                            "created": 1644545763446,
-                            "text": "股票问题",
-                            "note": "有三个状态需要记录：1、n为天数；2、k为可交易的最大次数(注意理解这里的含义，是最大次数，实际可以没有使用这么多次数，table里只是存了穷举所有结果中的最大值）；3、0和1分别表示那一天是否持有股票\n\n```java\n// dp table初始化\ndp[n][max_k + 1][0 or 1]\n// 伪代码模板\nfor 0 <= i < n:\n    for 1 <= k <= max_k:\n        for s in {0, 1}:\n            dp[i][k][s] = max(buy, sell, rest)\n            // 0的情况\n            dp[i][k][0] = max(dp[i-1][k][0], dp[i-1][k][1] + prices[i])\n            // 1的情况\n            dp[i][k][1] = max(dp[i-1][k][1], dp[i-1][k-1][0] - prices[i])\n// 实际模板\n// base case：\ndp[-1][...][0] = dp[...][0][0] = 0\ndp[-1][...][1] = dp[...][0][1] = -infinity /* 不可能持有股票，设置一个最小值使该结果不可能被取用到 */\n// 状态转移方程：\ndp[i][k][0] = max(dp[i-1][k][0], dp[i-1][k][1] + prices[i])\ndp[i][k][1] = max(dp[i-1][k][1], dp[i-1][k-1][0] - prices[i])\n```\n\n根据该模板做变形满足题意即可，比如对于k = 1或无交易次数限制的题目，可以把k省去，table变为二维的，又因为i只与前一天的状态有关，可以进一步压缩成O(1)级别的空间；再比如有冻结期或手续费，只要转移方程中稍加变化即可。\n\n```java\n// k = +infinity 空间压缩版\npublic int maxProfit(int[] prices) {\n    int n = prices.length;\n    int dp_i_0 = 0, dp_i_1 = - prices[0];\n    for (int i = 1; i < n; i++) {\n        int temp = dp_i_0;\n        dp_i_0 = Math.max(dp_i_0, dp_i_1 + prices[i]);\n        dp_i_1 = Math.max(dp_i_1, temp - prices[i]);\n    }\n    return dp_i_0;\n}\n```"
+                            "id": "chyzubxlc6g0",
+                            "created": 1645169293862,
+                            "text": "游戏专题",
+                            "expandState": "expand"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "chsuti0iu8w0",
+                                    "created": 1644545763446,
+                                    "text": "股票问题",
+                                    "note": "有三个状态需要记录：1、n为天数；2、k为可交易的最大次数(注意理解这里的含义，是最大次数，实际可以没有使用这么多次数，table里只是存了穷举所有结果中的最大值）；3、0和1分别表示那一天是否持有股票\n\n```java\n// dp table初始化\ndp[n][max_k + 1][0 or 1]\n// 伪代码模板\nfor 0 <= i < n:\n    for 1 <= k <= max_k:\n        for s in {0, 1}:\n            dp[i][k][s] = max(buy, sell, rest)\n            // 0的情况\n            dp[i][k][0] = max(dp[i-1][k][0], dp[i-1][k][1] + prices[i])\n            // 1的情况\n            dp[i][k][1] = max(dp[i-1][k][1], dp[i-1][k-1][0] - prices[i])\n// 实际模板\n// base case：\ndp[-1][...][0] = dp[...][0][0] = 0\ndp[-1][...][1] = dp[...][0][1] = -infinity /* 不可能持有股票，设置一个最小值使该结果不可能被取用到 */\n// 状态转移方程：\ndp[i][k][0] = max(dp[i-1][k][0], dp[i-1][k][1] + prices[i])\ndp[i][k][1] = max(dp[i-1][k][1], dp[i-1][k-1][0] - prices[i])\n```\n\n根据该模板做变形满足题意即可，比如对于k = 1或无交易次数限制的题目，可以把k省去，table变为二维的，又因为i只与前一天的状态有关，可以进一步压缩成O(1)级别的空间；再比如有冻结期或手续费，只要转移方程中稍加变化即可。\n\n```java\n// k = +infinity 空间压缩版\npublic int maxProfit(int[] prices) {\n    int n = prices.length;\n    int dp_i_0 = 0, dp_i_1 = - prices[0];\n    for (int i = 1; i < n; i++) {\n        int temp = dp_i_0;\n        dp_i_0 = Math.max(dp_i_0, dp_i_1 + prices[i]);\n        dp_i_1 = Math.max(dp_i_1, temp - prices[i]);\n    }\n    return dp_i_0;\n}\n```"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "chyzugsm3d40",
+                                    "created": 1645169304445,
+                                    "text": "打家劫舍"
+                                },
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "chyzuj9ebzc0",
+                            "created": 1645169309813,
+                            "text": "贪心"
                         },
                         "children": []
                     }
@@ -114,6 +140,14 @@
                         "children": []
                     }
                 ]
+            },
+            {
+                "data": {
+                    "id": "chyzwfw1flc0",
+                    "created": 1645169459204,
+                    "text": "数学运算"
+                },
+                "children": []
             },
             {
                 "data": {
