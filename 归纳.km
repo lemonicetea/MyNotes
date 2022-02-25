@@ -109,7 +109,7 @@
                             "id": "chsw16pfq9s0",
                             "created": 1644549186854,
                             "text": "归并排序",
-                            "note": "```java\nvoid sort(int[] nums, int lo, int hi) {\n    int mid = (lo + hi) / 2;\n    /****** 分 ******/\n    // 对数组的两部分分别排序\n    sort(nums, lo, mid);\n    sort(nums, mid + 1, hi);\n    /****** 治 ******/\n    // 合并两个排好序的子数组\n    merge(nums, lo, mid, hi);\n}\n```"
+                            "note": "```java\nclass Merge {\n    // 用于辅助合并有序数组\n    private static int[] temp;\n\n    public static void sort(int[] nums) {\n        // 先给辅助数组开辟内存空间\n        temp = new int[nums.length];\n        // 排序整个数组（原地修改）\n        sort(nums, 0, nums.length - 1);\n    }\n\n    // 定义：将子数组 nums[lo..hi] 进行排序\n    private static void sort(int[] nums, int lo, int hi) {\n        if (lo == hi) {\n            // 单个元素不用排序\n            return;\n        }\n        // 这样写是为了防止溢出，效果等同于 (hi + lo) / 2\n        int mid = lo + (hi - lo) / 2;\n        // 先对左半部分数组 nums[lo..mid] 排序\n        sort(nums, lo, mid);\n        // 再对右半部分数组 nums[mid+1..hi] 排序\n        sort(nums, mid + 1, hi);\n        // 将两部分有序数组合并成一个有序数组\n        merge(nums, lo, mid, hi);\n    }\n\n    // 将 nums[lo..mid] 和 nums[mid+1..hi] 这两个有序数组合并成一个有序数组\n    private static void merge(int[] nums, int lo, int mid, int hi) {\n        // 先把 nums[lo..hi] 复制到辅助数组中\n        // 以便合并后的结果能够直接存入 nums\n        for (int i = lo; i <= hi; i++) {\n            temp[i] = nums[i];\n        }\n\n        // 数组双指针技巧，合并两个有序数组\n        int i = lo, j = mid + 1;\n        for (int p = lo; p <= hi; p++) {\n            if (i == mid + 1) {\n                // 左半边数组已全部被合并\n                nums[p] = temp[j++];\n            } else if (j == hi + 1) {\n                // 右半边数组已全部被合并\n                nums[p] = temp[i++];\n            } else if (temp[i] > temp[j]) {\n                nums[p] = temp[j++];\n            } else {\n                nums[p] = temp[i++];\n            }\n        }\n    }\n}\n```"
                         },
                         "children": []
                     }
@@ -327,7 +327,7 @@
                     "id": "chqqlyp0sg80",
                     "created": 1644330768490,
                     "text": "图论",
-                    "note": "两种表示方法：\n1、邻接表：链表，比较节省空间，但是效率较低；\n2、邻接矩阵：二维数组，判断连通性迅速，但是如果图比较稀疏的话很耗费空间。"
+                    "note": "两种表示方法：\n1、邻接表：链表，比较节省空间，但是效率较低；\n2、邻接矩阵：二维数组，判断连通性迅速，但是如果图比较稀疏的话很耗费空间。\n有向图建图函数：\n```java\nList<Integer>[] buildGraph(int numCourses, int[][] prerequisites) {\n    // 图中共有 numCourses 个节点\n    List<Integer>[] graph = new LinkedList[numCourses];\n    for (int i = 0; i < numCourses; i++) {\n        graph[i] = new LinkedList<>();\n    }\n    for (int[] edge : prerequisites) {\n        int from = edge[1], to = edge[0];\n        // 添加一条从 from 指向 to 的有向边\n        // 边的方向是「被依赖」关系\n        graph[from].add(to);\n    }\n    return graph;\n}\n```\n图的遍历框架（DFS版）\n```java\n// 记录被遍历过的节点\nboolean[] visited;\n// 记录从起点到当前节点的路径\nboolean[] onPath;\n\n/* 图遍历框架 */\nvoid traverse(Graph graph, int s) {\n    if (visited[s]) return;\n    // 经过节点 s，标记为已遍历\n    visited[s] = true;\n    // 做选择：标记节点 s 在路径上\n    onPath[s] = true;\n    for (int neighbor : graph.neighbors(s)) {\n        traverse(graph, neighbor);\n    }\n    // 撤销选择：节点 s 离开路径\n    onPath[s] = false;\n}\n```"
                 },
                 "children": [
                     {
