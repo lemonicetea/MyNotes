@@ -34,15 +34,15 @@
 
 [226. 翻转二叉树（简单）](https://leetcode-cn.com/problems/invert-binary-tree) 递归，交换左右孩子
 
-[114. 二叉树展开为链表（中等）](https://leetcode-cn.com/problems/flatten-binary-tree-to-linked-list) 递归，先将左右孩子分别拉平，然后左变右，右接到新右的叶子节点上
+[114. 二叉树展开为链表（中等）](https://leetcode-cn.com/problems/flatten-binary-tree-to-linked-list) 递归，先将左右孩子分别拉平，然后左变右，不停向下找到叶子节点，将右半截子接到叶子节点上
 
-[116. 填充每个节点的下一个右侧节点指针（中等）](https://leetcode-cn.com/problems/populating-next-right-pointers-in-each-node) 辅助函数递归，左指向右，1的右指向2的左
+[116. 填充每个节点的下一个右侧节点指针（中等）](https://leetcode-cn.com/problems/populating-next-right-pointers-in-each-node) 辅助函数递归，传入相邻的两个节点，1指向2，然后递归调用：1的左和右，2的左和右，1的右和2的左
 
-[654. 最大二叉树（中等）](https://leetcode-cn.com/problems/maximum-binary-tree/) 辅助函数递归，在每段内找到最大值构造为root
+[654. 最大二叉树（中等）](https://leetcode-cn.com/problems/maximum-binary-tree/) 辅助函数递归，在每段内for循环找到最大值构造为root，对左右孩子分别继续调用递归函数
 
-[105. 从前序与中序遍历序列构造二叉树（中等）](https://leetcode-cn.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/)辅助函数递归，找到root和左右孩子区间
+[105. 从前序与中序遍历序列构造二叉树（中等）](https://leetcode-cn.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/)辅助函数递归，传入int[] preorder, int preStart, int preEnd, int[] inorder, int inStart, int inEnd六个参数，preorder的preStart位置是root，在inorder中找到root的索引，切割出左右孩子继续递归
 
-[106. 从中序与后序遍历序列构造二叉树（中等）](https://leetcode-cn.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/)同上
+[106. 从中序与后序遍历序列构造二叉树（中等）](https://leetcode-cn.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/)同上，postorder的postEnd位置是root
 
 [652. 寻找重复的子树（中等）](https://leetcode-cn.com/problems/find-duplicate-subtrees) HashMap记录每个节点为根后序遍历拼接出的字符串和出现次数
 

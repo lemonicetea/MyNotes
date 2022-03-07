@@ -34,6 +34,7 @@ int i = l1 != null ? l1.val : 0;
 
 ## int
 ```java
+// string转int
 int i = Integer.parseInt("123");
 ```
 
@@ -48,6 +49,8 @@ return new int[]{i, j};
 ## 字符串
 
 ```java
+// int转string
+String s = Integer.toString(123);
 // 创建
 String str = new String("hello");
 // 截取，注意左闭右开
