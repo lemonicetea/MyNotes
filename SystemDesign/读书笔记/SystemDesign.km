@@ -1,0 +1,79 @@
+{
+    "root": {
+        "data": {
+            "id": "cif7lifed800",
+            "created": 1646816130908,
+            "text": "System Design Interviews"
+        },
+        "children": [
+            {
+                "data": {
+                    "id": "cif7lmxu8400",
+                    "created": 1646816140730,
+                    "text": "原则"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "cif7mfw5vi80",
+                            "created": 1646816203755,
+                            "text": "需求澄清"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "cif7mla8iog0",
+                            "created": 1646816215490,
+                            "text": "系统接口定义"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "cif7msywqxs0",
+                            "created": 1646816232220,
+                            "text": "粗略的估计"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "cif7mxlbx000",
+                            "created": 1646816242282,
+                            "text": "定义数据模型"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "cif7n43ipb40",
+                            "created": 1646816256443,
+                            "text": "粗粒度的设计"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "cif7n6kf4yw0",
+                            "created": 1646816261818,
+                            "text": "详细设计"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "cif7nh32luo0",
+                            "created": 1646816284714,
+                            "text": "识别并解决瓶颈"
+                        },
+                        "children": []
+                    }
+                ]
+            }
+        ]
+    },
+    "template": "default",
+    "theme": "fresh-blue",
+    "version": "1.4.43"
+}

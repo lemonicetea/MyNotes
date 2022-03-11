@@ -8,41 +8,137 @@
         "children": [
             {
                 "data": {
-                    "id": "cgxlexdnae80",
-                    "created": 1641370872783,
-                    "text": "关于数据系统的思考"
+                    "id": "cigtcnh27qo0",
+                    "created": 1646979060989,
+                    "text": "数据系统基石（单台机器）"
                 },
                 "children": [
                     {
                         "data": {
-                            "id": "cgxlf3umi600",
-                            "created": 1641370886870,
-                            "text": "可靠性",
-                            "note": "人们对于一个东西是否可靠，都有一个直观的想法。人们对可靠软件的典型期望包括：\n- 应用程序表现出用户所期望的功能。\n- 允许用户犯错，允许用户以出乎意料的方式使用软件。\n- 在预期的负载和数据量下，性能满足要求。\n- 系统能防止未经授权的访问和滥用。\n造成错误的原因叫做故障（fault）不同于失效（failure），故障的概率不可能降到零，因此最好设计容错机制以防因故障而导致失效。"
+                            "id": "cgxlexdnae80",
+                            "created": 1641370872783,
+                            "text": "非功能性需求"
                         },
                         "children": [
                             {
                                 "data": {
-                                    "id": "cgxlfl3sbww0",
-                                    "created": 1641370924430,
-                                    "text": "硬件故障（hardware faults）",
-                                    "note": "通常认为硬件故障是随机的、相互独立的。\n一般是增加冗余来提高可用性，但是相应的硬件故障率也会提高，要根据系统优先考虑因素决定。\n在冗余的基础上进一步引入软件容错机制会更好。"
+                                    "id": "cgxlf3umi600",
+                                    "created": 1641370886870,
+                                    "text": "可靠性",
+                                    "note": "人们对于一个东西是否可靠，都有一个直观的想法。人们对可靠软件的典型期望包括：\n- 应用程序表现出用户所期望的功能。\n- 允许用户犯错，允许用户以出乎意料的方式使用软件。\n- 在预期的负载和数据量下，性能满足要求。\n- 系统能防止未经授权的访问和滥用。\n造成错误的原因叫做故障（fault）不同于失效（failure），故障的概率不可能降到零，因此最好设计容错机制以防因故障而导致失效。"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "cgxlfl3sbww0",
+                                            "created": 1641370924430,
+                                            "text": "硬件故障（hardware faults）",
+                                            "note": "通常认为硬件故障是随机的、相互独立的。\n一般是增加冗余来提高可用性，但是相应的硬件故障率也会提高，要根据系统优先考虑因素决定。\n在冗余的基础上进一步引入软件容错机制会更好。"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "cgxljfhrkuw0",
+                                            "created": 1641371225671,
+                                            "text": "软件错误"
+                                        },
+                                        "children": []
+                                    },
+                                    {
+                                        "data": {
+                                            "id": "cgyd5axd0yo0",
+                                            "created": 1641449109709,
+                                            "text": "人为错误"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "cgxlf61ly2g0",
+                                    "created": 1641370891646,
+                                    "text": "可伸缩性/可扩展性(Scalability)",
+                                    "note": "用来描述系统应对负载增长能力的术语。"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "ch1nz7sxzg00",
+                                            "created": 1641784344806,
+                                            "text": "如何描述负载"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "cgxlf9qfw5c0",
+                                    "created": 1641370899678,
+                                    "text": "可维护性"
+                                },
+                                "children": []
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "cigtctgz0q80",
+                    "created": 1646979074045,
+                    "text": "分布式数据（多台机器）"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "cigugbr9zts0",
+                            "created": 1646982170052,
+                            "text": "副本 Replication",
+                            "note": "使用副本主要出于以下几个目的：\n- 高可用性\n即使在一台机器（或多台机器，或整个数据中心）停机的情况下也能保持系统正常运行\n- 断开连接的操作\n允许应用程序在网络中断时继续工作\n- 延迟\n将数据放置在距离用户较近的地方，以便用户能够更快地与其交互\n- 可伸缩性\n通过在副本上读，能够处理比单机更大的读取量"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "ciguhcda5q80",
+                                    "created": 1646982249747,
+                                    "text": "主从",
+                                    "note": "客户端将所有写入操作发送到单个节点（主/领导者），该节点将数据更改事件流发送到其他副本（从/追随者）。读取可以在任何副本上执行，但从追随者读取可能是陈旧的（因为可能使用了异步的复制机制）。"
+                                },
+                                "children": [
+                                    {
+                                        "data": {
+                                            "id": "cigujmd5jkw0",
+                                            "created": 1646982428235,
+                                            "text": "同步复制or异步复制"
+                                        },
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "data": {
+                                    "id": "ciguhe6rjps0",
+                                    "created": 1646982253707,
+                                    "text": "复制滞后问题"
                                 },
                                 "children": []
                             },
                             {
                                 "data": {
-                                    "id": "cgxljfhrkuw0",
-                                    "created": 1641371225671,
-                                    "text": "软件错误"
+                                    "id": "ciguhhau2xk0",
+                                    "created": 1646982260483,
+                                    "text": "多主复制"
                                 },
                                 "children": []
                             },
                             {
                                 "data": {
-                                    "id": "cgyd5axd0yo0",
-                                    "created": 1641449109709,
-                                    "text": "人为错误"
+                                    "id": "ciguib75ni00",
+                                    "created": 1646982325564,
+                                    "text": "无主复制"
                                 },
                                 "children": []
                             }
@@ -50,27 +146,9 @@
                     },
                     {
                         "data": {
-                            "id": "cgxlf61ly2g0",
-                            "created": 1641370891646,
-                            "text": "可伸缩性/可扩展性(Scalability)",
-                            "note": "用来描述系统应对负载增长能力的术语。"
-                        },
-                        "children": [
-                            {
-                                "data": {
-                                    "id": "ch1nz7sxzg00",
-                                    "created": 1641784344806,
-                                    "text": "如何描述负载"
-                                },
-                                "children": []
-                            }
-                        ]
-                    },
-                    {
-                        "data": {
-                            "id": "cgxlf9qfw5c0",
-                            "created": 1641370899678,
-                            "text": "可维护性"
+                            "id": "cigugyp0ixs0",
+                            "created": 1646982219982,
+                            "text": "分区 Partitioning"
                         },
                         "children": []
                     }
@@ -78,7 +156,7 @@
             }
         ]
     },
-    "template": "default",
+    "template": "right",
     "theme": "fresh-blue",
     "version": "1.4.43"
 }
